@@ -19,5 +19,13 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "nodemon": "^3.1.9"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kitchenartsandletters/request-mgmt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kitchenartsandletters/request-mgmt/issues"
+  },
+  "homepage": "https://github.com/kitchenartsandletters/request-mgmt#readme"
 }
