@@ -1,9 +1,7 @@
+require('dotenv').config();
 const { App } = require('@slack/bolt');
 const { WebClient } = require('@slack/web-api');
-const dotenv = require('dotenv');
-
-// Load environment variables
-dotenv.config();
+const RequestTracker = require('./integrations/googleSheetsTracker');
 
 // Initialize Slack App with Socket Mode
 const app = new App({
@@ -13,13 +11,14 @@ const app = new App({
   appToken: process.env.SLACK_APP_TOKEN
 });
 
-// Special Request Modal View
+// Create Special Request Modal
 const createSpecialRequestModal = () => {
   return {
     type: "modal",
+    callback_id: "request_submission",
     title: {
       type: "plain_text",
-      text: "Special Request",
+      text: "Create New Request",
       emoji: true
     },
     submit: {
@@ -104,6 +103,22 @@ const createSpecialRequestModal = () => {
       },
       {
         type: "input",
+        block_id: "customer_contact",
+        label: {
+          type: "plain_text",
+          text: "Customer Contact"
+        },
+        element: {
+          type: "plain_text_input",
+          action_id: "customer_contact_input",
+          placeholder: {
+            type: "plain_text",
+            text: "Phone or email"
+          }
+        }
+      },
+      {
+        type: "input",
         block_id: "request_details",
         label: {
           type: "plain_text",
@@ -169,8 +184,8 @@ const createSpecialRequestModal = () => {
   };
 };
 
-// Slash command handler
-app.command('/special-request', async ({ body, ack, client }) => {
+// Slash command handler to open modal
+app.command('/request', async ({ body, ack, client }) => {
   // Acknowledge the command request
   await ack();
 
@@ -186,98 +201,191 @@ app.command('/special-request', async ({ body, ack, client }) => {
 });
 
 // Handle modal submission
-app.view('special_request_submission', async ({ body, view, ack, client }) => {
+app.view('request_submission', async ({ body, view, ack, client }) => {
   // Validate and process the submission
   await ack();
 
-  // Extract submitted values
-  const values = view.state.values;
-  const requestData = {
-    type: values.request_type.request_type_select.selected_option.value,
-    customerName: values.customer_name.customer_name_input.value,
-    details: values.request_details.request_details_input.value,
-    priority: values.priority.priority_select.selected_option.value
-  };
+  try {
+    // Extract submitted values
+    const values = view.state.values;
+    const requestId = `REQ-${Date.now()}`;
+    const requestData = {
+      requestId,
+      type: values.request_type.request_type_select.selected_option.value,
+      customerName: values.customer_name.customer_name_input.value,
+      customerContact: values.customer_contact.customer_contact_input.value,
+      details: values.request_details.request_details_input.value,
+      priority: values.priority.priority_select.selected_option.value
+    };
 
-  // Generate unique request ID
-  const requestId = `REQ-${Date.now()}`;
+    // Save to Google Sheets
+    await RequestTracker.addRequest(requestData);
 
-  // Post to special requests channel
-  await client.chat.postMessage({
-    channel: process.env.SPECIAL_REQUESTS_CHANNEL,
-    blocks: [
-      {
-        type: "section",
-        text: {
-          type: "mrkdwn",
-          text: `*New Special Request* \n*Request ID:* ${requestId}`
-        }
-      },
-      {
-        type: "section",
-        fields: [
-          {
+    // Post to requests channel (using the already declared requestId)
+    await client.chat.postMessage({
+      channel: process.env.REQUESTS_CHANNEL,
+      text: `New Request: ${requestId}`,
+      blocks: [
+        {
+          type: "section",
+          text: {
             type: "mrkdwn",
-            text: `*Type:* ${requestData.type}`
-          },
-          {
-            type: "mrkdwn",
-            text: `*Priority:* ${requestData.priority}`
-          },
-          {
-            type: "mrkdwn",
-            text: `*Customer:* ${requestData.customerName}`
+            text: `*New Request* \n*Request ID:* ${requestId}`
           }
-        ]
-      },
-      {
-        type: "section",
-        text: {
-          type: "mrkdwn",
-          text: `*Details:*\n${requestData.details}`
-        }
-      },
-      {
-        type: "actions",
-        elements: [
-          {
-            type: "button",
-            text: {
-              type: "plain_text",
-              text: "Mark In Progress"
+        },
+        {
+          type: "section",
+          fields: [
+            {
+              type: "mrkdwn",
+              text: `*Type:* ${requestData.type}`
             },
-            value: requestId,
-            action_id: "mark_in_progress"
-          },
-          {
-            type: "button",
-            text: {
-              type: "plain_text",
-              text: "Close Request"
+            {
+              type: "mrkdwn",
+              text: `*Priority:* ${requestData.priority}`
             },
-            value: requestId,
-            action_id: "close_request"
+            {
+              type: "mrkdwn",
+              text: `*Customer:* ${requestData.customerName}`
+            },
+            {
+              type: "mrkdwn",
+              text: `*Contact:* ${requestData.customerContact}`
+            }
+          ]
+        },
+        {
+          type: "section",
+          text: {
+            type: "mrkdwn",
+            text: `*Details:*\n${requestData.details}`
           }
-        ]
-      }
-    ]
-  });
+        },
+        {
+          type: "actions",
+          elements: [
+            {
+              type: "button",
+              text: {
+                type: "plain_text",
+                text: "Mark In Progress"
+              },
+              value: requestId,
+              action_id: "mark_in_progress"
+            },
+            {
+              type: "button",
+              text: {
+                type: "plain_text",
+                text: "Close Request"
+              },
+              value: requestId,
+              action_id: "close_request"
+            }
+          ]
+        }
+      ]
+    });
 
-  // TODO: Integrate with Google Sheets for tracking
-  // TODO: Implement request tracking logic
+  } catch (error) {
+    console.error('Error in request submission:', error);
+    // Optionally send an error message to the user
+  }
 });
 
-// Handle action buttons
+// Update action handlers to modify Google Sheets
 app.action('mark_in_progress', async ({ body, ack, client }) => {
   await ack();
-  // Implement in-progress logic
-  // Update request status
+  
+  try {
+    const requestId = body.actions[0].value;
+    
+    // Update status in Google Sheets
+    await RequestTracker.updateRequestStatus(requestId, 'In Progress');
+
+    // Update Slack message
+    await client.chat.update({
+      channel: body.channel.id,
+      ts: body.message.ts,
+      blocks: [
+        ...body.message.blocks.slice(0, -1),
+        {
+          type: "context",
+          elements: [
+            {
+              type: "mrkdwn",
+              text: `*Status:* In Progress`
+            }
+          ]
+        }
+      ]
+    });
+  } catch (error) {
+    console.error('Error marking request in progress:', error);
+  }
 });
 
 app.action('close_request', async ({ body, ack, client }) => {
   await ack();
-  // Implement request closure logic
-  // Update request status
+  
+  try {
+    const requestId = body.actions[0].value;
+    
+    // Update status in Google Sheets
+    await RequestTracker.updateRequestStatus(requestId, 'Closed');
+
+    // Update Slack message
+    await client.chat.update({
+      channel: body.channel.id,
+      ts: body.message.ts,
+      blocks: [
+        ...body.message.blocks.slice(0, -1),
+        {
+          type: "context",
+          elements: [
+            {
+              type: "mrkdwn",
+              text: `*Status:* Closed`
+            }
+          ]
+        }
+      ]
+    });
+  } catch (error) {
+    console.error('Error closing request:', error);
+  }
+});
+
+// Error handler
+app.error(async (error) => {
+  console.error('Unhandled error:', error);
+});
+
+// Add new slash commands for advanced tracking
+app.command('/request-search', async ({ body, ack, client }) => {
+  await ack();
+
+  try {
+    const searchQuery = body.text;
+    const results = await RequestTracker.searchRequests(searchQuery);
+
+    // Format results for Slack message
+    const resultBlocks = results.map(request => ({
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: `*Request ID:* ${request.RequestID}\n*Type:* ${request.Type}\n*Status:* ${request.Status}\n*Customer:* ${request.CustomerName}`
+      }
+    }));
+
+    await client.chat.postMessage({
+      channel: body.channel_id,
+      text: `Search Results for "${searchQuery}"`,
+      blocks: resultBlocks
+    });
+  } catch (error) {
+    console.error('Error searching requests:', error);
+  }
 });
 
 // Error handler
@@ -287,18 +395,13 @@ app.error(async (error) => {
 
 // Start the app
 (async () => {
-  await app.start(process.env.PORT || 3000);
-  console.log('⚡️ Bolt app is running!');
+  try {
+    await app.start(process.env.PORT || 3000);
+    console.log('⚡️ Bolt app is running!');
+  } catch (error) {
+    console.error('Failed to start app:', error);
+  }
 })();
-
-// Required .env file contents:
-/*
-SLACK_BOT_TOKEN=xoxb-your-bot-token
-SLACK_SIGNING_SECRET=your-signing-secret
-SLACK_APP_TOKEN=xapp-your-app-level-token
-SPECIAL_REQUESTS_CHANNEL=#special-requests
-PORT=3000
-*/
 
 module.exports = {
   app,
