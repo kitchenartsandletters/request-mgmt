@@ -2,3 +2,10 @@ node_modules/
 .env
 .DS_Store
 npm-debug.log
+package.json.old
+src/app.js.old
+src/app030425beta.js
+integrations/bookHoldPrinter.js.old
+integrations/requestDashboard.js.old
+integrations/services/unifiedEventLogger.js.old
+logs/
