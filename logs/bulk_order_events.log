@@ -1,0 +1,33 @@
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740866052071
+REQUEST TYPE: bulk_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:54:13.756Z
+METADATA: {
+  "customerName": "test name",
+  "customerContact": "2429",
+  "isbn": "fjadsif",
+  "dateNeeded": "2025-03-07",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740866052071
+REQUEST TYPE: bulk_order
+PREVIOUS STATUS: NEW
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:54:32.075Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:54:31.277Z"
+}
+-----------------
+

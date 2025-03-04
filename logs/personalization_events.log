@@ -1,0 +1,33 @@
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740866093498
+REQUEST TYPE: personalization
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:54:55.065Z
+METADATA: {
+  "customerName": "wewfwe",
+  "customerContact": "fwei",
+  "isbn": "feawij",
+  "dateNeeded": "2025-03-07",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740866093498
+REQUEST TYPE: personalization
+PREVIOUS STATUS: NEW
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:08:24.507Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:08:23.081Z"
+}
+-----------------
+

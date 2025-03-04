@@ -1,0 +1,551 @@
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740865701677
+REQUEST TYPE: backorder_request
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:48:23.002Z
+METADATA: {
+  "customerName": "Test Mame",
+  "customerContact": "44284",
+  "isbn": "0404935848",
+  "dateNeeded": "2025-03-19",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865701677
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:48:25.847Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:48:25.305Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865701677
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:50:33.754Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:50:32.928Z",
+  "order_number": "445",
+  "estimated_arrival": "54353"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740865701677
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:50:34.882Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:50:32.928Z",
+  "order_number": "445",
+  "estimated_arrival": "54353"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865701677
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:51:20.263Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:51:19.632Z",
+  "arrival_date": "3/1"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740865701677
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:51:21.593Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:51:19.632Z",
+  "arrival_date": "3/1"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865701677
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:51:53.864Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:51:53.221Z",
+  "notification_method": "call",
+  "notification_date": "3/1"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740865701677
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:51:55.068Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:51:53.221Z",
+  "notification_method": "call",
+  "notification_date": "3/1"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865701677
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:52:15.610Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:52:14.798Z",
+  "payment_method": "434",
+  "payment_amount": "424"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740865701677
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:52:16.967Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:52:14.798Z",
+  "payment_method": "434",
+  "payment_amount": "424"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865701677
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:52:22.392Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:52:21.836Z",
+  "completion_date": "3/1"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740865701677
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:52:23.726Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:52:21.836Z",
+  "completion_date": "3/1"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741103715791
+REQUEST TYPE: backorder_request
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:55:17.293Z
+METADATA: {
+  "customerName": "asdf",
+  "customerContact": "asfd",
+  "isbn": "adf",
+  "dateNeeded": "2025-03-05",
+  "priority": "urgent"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741103715791
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:55:19.152Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:55:18.548Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741103715791
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:55:27.146Z
+METADATA: {
+  "ordered_by": "adfasdf",
+  "order_method": "Email",
+  "estimated_arrival": "2025-03-05",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:55:26.464Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741103715791
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:55:34.684Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:55:33.946Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741103715791
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:55:35.913Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:55:33.946Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741103715791
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:55:42.435Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:55:41.779Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741103715791
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:55:43.636Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:55:41.779Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741103715791
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:55:51.224Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:55:50.533Z",
+  "payment_method": "Shopify",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741103715791
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:55:52.445Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:55:50.533Z",
+  "payment_method": "Shopify",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741103715791
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:55:56.490Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:55:55.932Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741103715791
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:55:57.588Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:55:55.932Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741115864569
+REQUEST TYPE: backorder_request
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:17:46.072Z
+METADATA: {
+  "customerName": "Test",
+  "customerContact": "email.com",
+  "vendorPublisher": "TDH",
+  "isbn": "TEST",
+  "dateNeeded": "2025-03-05",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741115864569
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: NEW
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:18:05.669Z
+METADATA: {
+  "ordered_by": "wefwef",
+  "order_method": "Phone",
+  "estimated_arrival": "2025-03-05",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T19:18:04.905Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741115864569
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:18:10.144Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T19:18:09.503Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741115864569
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:18:11.356Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T19:18:09.503Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741115864569
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:18:21.547Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T19:18:20.881Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741115864569
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:18:22.827Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T19:18:20.881Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741115864569
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:18:33.823Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T19:18:33.160Z",
+  "payment_method": "Shopify",
+  "order_number": "54321"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741115864569
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:18:35.136Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T19:18:33.160Z",
+  "payment_method": "Shopify",
+  "order_number": "54321"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741115864569
+REQUEST TYPE: backorder_request
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:18:37.931Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T19:18:37.223Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741115864569
+REQUEST TYPE: backorder_request
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:18:39.166Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T19:18:37.223Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+

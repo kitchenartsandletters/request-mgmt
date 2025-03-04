@@ -1,0 +1,1648 @@
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740847028583
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T16:37:11.026Z
+METADATA: {
+  "customerName": "Test Name 0301",
+  "customerContact": "test@test.com",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740847109885
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T16:38:31.983Z
+METADATA: {
+  "customerName": "Dry Tortugas",
+  "customerContact": "test@test.com",
+  "priority": "low"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740847607947
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T16:46:49.763Z
+METADATA: {
+  "customerName": "Test Name 99",
+  "customerContact": "test99@test.com",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740847607947
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T16:50:11.536Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T16:50:10.719Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740848292375
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T16:58:14.471Z
+METADATA: {
+  "customerName": "test name 100",
+  "customerContact": "test100@test.com",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740848292375
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T16:58:19.643Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T16:58:18.982Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740848349173
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T16:59:10.623Z
+METADATA: {
+  "customerName": "test name 101",
+  "customerContact": "test101@test.com",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740859999411
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:13:23.479Z
+METADATA: {
+  "customerName": "Test Name",
+  "customerContact": "212-876-5550",
+  "isbn": "9789814893930",
+  "priority": "urgent"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740860481552
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:21:23.813Z
+METADATA: {
+  "customerName": "Test Name",
+  "customerContact": "212-876-5550",
+  "isbn": "9789814893930",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740860698668
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:25:00.731Z
+METADATA: {
+  "customerName": "Julia Child",
+  "customerContact": "212-876-5550",
+  "isbn": "9789814893930",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740860698668
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:25:05.536Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T20:25:04.824Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740861157040
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:32:38.992Z
+METADATA: {
+  "customerName": "Test Name",
+  "customerContact": "212-876-5550",
+  "isbn": "9789814893930",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740861157040
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:32:42.550Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T20:32:41.969Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740861157040
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:34:08.255Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T20:34:07.536Z",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740861157040
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:34:09.615Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T20:34:07.536Z",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740861157040
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:45:58.160Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T20:45:56.816Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740861157040
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:46:16.288Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T20:46:15.628Z",
+  "arrival_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740861157040
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:46:17.604Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T20:46:15.628Z",
+  "arrival_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740861157040
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:55:24.647Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T20:55:23.169Z",
+  "arrival_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740861157040
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:55:25.930Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T20:55:23.169Z",
+  "arrival_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740861157040
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:56:07.846Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T20:56:06.950Z",
+  "notification_method": "Phone Call",
+  "notification_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740861157040
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T20:56:09.376Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T20:56:06.950Z",
+  "notification_method": "Phone Call",
+  "notification_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740861157040
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:05:04.183Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:05:02.639Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740863154058
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:05:55.875Z
+METADATA: {
+  "customerName": "Test Name",
+  "customerContact": "212-876-5550",
+  "isbn": "9789814893930",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740863154058
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:05:58.566Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:05:57.785Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740863154058
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:06:02.171Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:06:01.429Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740863154058
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:06:09.741Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:06:09.066Z",
+  "arrival_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740863154058
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:06:10.999Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:06:09.066Z",
+  "arrival_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740863154058
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:06:23.313Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:06:22.589Z",
+  "notification_method": "Phone Call",
+  "notification_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740863154058
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:06:24.540Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:06:22.589Z",
+  "notification_method": "Phone Call",
+  "notification_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740863154058
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:33:58.897Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:33:57.272Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740864859525
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:34:21.050Z
+METADATA: {
+  "customerName": "Test Name",
+  "customerContact": "21233333",
+  "isbn": "978238248792",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740864859525
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:34:23.733Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:34:22.974Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740864859525
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:34:26.737Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:34:26.044Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740864859525
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:37:31.536Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:37:30.691Z",
+  "arrival_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740864859525
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:37:32.869Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:37:30.691Z",
+  "arrival_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740864859525
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:37:47.164Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:37:46.442Z",
+  "notification_method": "E-mail",
+  "notification_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740864859525
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:37:48.613Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:37:46.442Z",
+  "notification_method": "E-mail",
+  "notification_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740864859525
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:38:13.341Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:38:12.566Z",
+  "payment_method": "Shopify",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740864859525
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:38:14.889Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:38:12.566Z",
+  "payment_method": "Shopify",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740864859525
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:38:59.186Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:38:58.125Z",
+  "completion_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740864859525
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:39:00.653Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:38:58.125Z",
+  "completion_date": "3/1/2025"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740866962271
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:09:23.704Z
+METADATA: {
+  "customerName": "fweaf",
+  "customerContact": "fadsjif",
+  "isbn": "fadij",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740867028190
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:10:29.705Z
+METADATA: {
+  "customerName": "udfhadsu",
+  "customerContact": "fausdh",
+  "isbn": "fadsufhad",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867028190
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:10:33.311Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:10:32.743Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867028190
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:11:27.150Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:11:26.289Z",
+  "ordered_by": "Gil",
+  "order_method": "Via Email",
+  "estimated_arrival": "2/2/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740867028190
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:11:28.537Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:11:26.289Z",
+  "ordered_by": "Gil",
+  "order_method": "Via Email",
+  "estimated_arrival": "2/2/2025"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867028190
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: ORDERED
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:15:09.286Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:15:08.116Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741031845066
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T19:57:27.157Z
+METADATA: {
+  "customerName": "Gil",
+  "customerContact": "gil@gil.com",
+  "isbn": "97838328484848",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741031845066
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:12:31.990Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:12:30.111Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741036490746
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:14:52.964Z
+METADATA: {
+  "customerName": "Test",
+  "customerContact": "test",
+  "isbn": "test",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741036490746
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:15:07.940Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:15:07.068Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741036490746
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:24:51.484Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:24:49.752Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741041724319
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:42:05.719Z
+METADATA: {
+  "customerName": "adsfa",
+  "customerContact": "asdfasd",
+  "isbn": "asdf",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041724319
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:42:08.085Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:42:07.499Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041724319
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:42:44.706Z
+METADATA: {
+  "ordered_by": "dfsdf",
+  "order_method": "Vendor Website",
+  "estimated_arrival": "2025-03-04",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:42:44.060Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041724319
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:42:59.591Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:42:58.977Z",
+  "arrival_date": "2025-03-02"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041724319
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:43:00.637Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:42:58.977Z",
+  "arrival_date": "2025-03-02"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041724319
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:43:10.755Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:43:10.073Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041724319
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:43:12.025Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:43:10.073Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041724319
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:43:19.611Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:43:18.903Z",
+  "payment_method": "POS",
+  "order_number": "455555"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041724319
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:43:20.681Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:43:18.903Z",
+  "payment_method": "POS",
+  "order_number": "455555"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041724319
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:43:38.806Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:43:38.178Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041724319
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:43:39.865Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:43:38.178Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741103519046
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:52:02.779Z
+METADATA: {
+  "customerName": "afdsf",
+  "customerContact": "adsf",
+  "isbn": "asfsd",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741103519046
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:52:06.598Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:52:05.976Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741103519046
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:52:32.005Z
+METADATA: {
+  "ordered_by": "adfa",
+  "order_method": "Phone",
+  "estimated_arrival": "2025-03-05",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:52:31.237Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741103519046
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:53:00.815Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:52:59.923Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741103519046
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:53:01.990Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:52:59.923Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741103519046
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:53:18.664Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:53:17.998Z",
+  "notification_method": "Email",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741103519046
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:53:19.859Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:53:17.998Z",
+  "notification_method": "Email",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741103519046
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:53:37.053Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:53:36.152Z",
+  "payment_method": "POS",
+  "order_number": "5555"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741103519046
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:53:38.384Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:53:36.152Z",
+  "payment_method": "POS",
+  "order_number": "5555"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741103519046
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: PAID
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T15:53:44.602Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T15:53:43.907Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741108106045
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:08:27.370Z
+METADATA: {
+  "customerName": "dsfasdf",
+  "customerContact": "adsfa",
+  "isbn": "adsfa",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741108106045
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:13:20.954Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:13:19.747Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741108649079
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:17:31.021Z
+METADATA: {
+  "customerName": "adfa",
+  "customerContact": "asdfa",
+  "isbn": "asdfas",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741108649079
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:19:38.627Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:19:37.749Z",
+  "payment_method": "POS",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741108649079
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:19:39.891Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:19:37.749Z",
+  "payment_method": "POS",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741108649079
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: PAID
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:46:18.695Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:46:16.889Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741110399846
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:46:41.241Z
+METADATA: {
+  "customerName": "fsdfa",
+  "customerContact": "afad",
+  "isbn": "adfa",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741110399846
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:56:38.750Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:56:37.610Z",
+  "payment_method": "POS",
+  "order_number": "124333"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741110399846
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:56:40.214Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:56:37.610Z",
+  "payment_method": "POS",
+  "order_number": "124333"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741110399846
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:56:43.974Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:56:43.393Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741110399846
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:56:45.104Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:56:43.393Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741111071293
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:57:52.772Z
+METADATA: {
+  "customerName": "fadsfa",
+  "customerContact": "asdf",
+  "isbn": "adsf",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741111071293
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:58:04.002Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:58:03.307Z",
+  "payment_method": "POS",
+  "order_number": "D123"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741111071293
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:58:05.191Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:58:03.307Z",
+  "payment_method": "POS",
+  "order_number": "D123"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741111071293
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:58:09.754Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:58:09.239Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741111071293
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:58:11.119Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:58:09.239Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741111108132
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:58:29.329Z
+METADATA: {
+  "customerName": "asfad",
+  "customerContact": "fasdfa",
+  "isbn": "978666",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741111969473
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T18:12:51.977Z
+METADATA: {
+  "customerName": "fadfa",
+  "customerContact": "asdfa",
+  "isbn": "9781111111113",
+  "priority": "low"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741112864317
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T18:27:46.634Z
+METADATA: {
+  "customerName": "adfadsf",
+  "customerContact": "asdfsadf",
+  "isbn": "9781454944461",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741112864317
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T18:28:40.090Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T18:28:39.450Z",
+  "payment_method": "POS",
+  "order_number": "D104"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741112864317
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T18:28:41.242Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T18:28:39.450Z",
+  "payment_method": "POS",
+  "order_number": "D104"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741112864317
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T18:28:56.939Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T18:28:56.238Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741112864317
+REQUEST TYPE: book_hold
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T18:28:58.049Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T18:28:56.238Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741115672566
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:14:35.232Z
+METADATA: {
+  "customerName": "fasdf",
+  "customerContact": "gil.fadsj.com",
+  "isbn": "TEST",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741115672566
+REQUEST TYPE: book_hold
+PREVIOUS STATUS: NEW
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:15:17.141Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T19:15:16.292Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741115821107
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:17:02.578Z
+METADATA: {
+  "customerName": "gil",
+  "customerContact": "9445",
+  "isbn": "TEST",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741117571559
+REQUEST TYPE: book_hold
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T19:46:14.542Z
+METADATA: {
+  "customerName": "TEST",
+  "customerContact": "test@Test.com",
+  "isbn": "TEST",
+  "priority": "standard"
+}
+-----------------
+

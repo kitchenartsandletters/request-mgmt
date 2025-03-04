@@ -1,0 +1,48 @@
+
+REQUEST CREATED
+-----------------
+ID: REQ-1740865701677
+TYPE: backorder_request
+CUSTOMER: Test Mame
+CONTACT: 44284
+
+ISBN: 0404935848
+DETAILS: the book
+DATE NEEDED: 2025-03-19
+
+PRIORITY: high
+TIMESTAMP: 2025-03-01T21:48:23.003Z
+-----------------
+
+
+REQUEST CREATED
+-----------------
+ID: REQ-1741103715791
+TYPE: backorder_request
+CUSTOMER: asdf
+CONTACT: asfd
+
+ISBN: adf
+DETAILS: asdf
+DATE NEEDED: 2025-03-05
+
+PRIORITY: urgent
+TIMESTAMP: 2025-03-04T15:55:17.295Z
+-----------------
+
+
+REQUEST CREATED
+-----------------
+ID: REQ-1741115864569
+TYPE: backorder_request
+CUSTOMER: Test
+CONTACT: email.com
+VENDOR/PUBLISHER: TDH
+ISBN: TEST
+DETAILS: adsjaf
+DATE NEEDED: 2025-03-05
+
+PRIORITY: high
+TIMESTAMP: 2025-03-04T19:17:46.076Z
+-----------------
+

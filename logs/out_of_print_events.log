@@ -1,0 +1,34 @@
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740865983981
+REQUEST TYPE: out_of_print
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:53:05.371Z
+METADATA: {
+  "customerName": "test name",
+  "customerContact": "3242",
+  "vendorPublisher": "RDH",
+  "dateNeeded": "2025-04-25",
+  "condition": "very_good",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865983981
+REQUEST TYPE: out_of_print
+PREVIOUS STATUS: NEW
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:53:53.551Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:53:52.765Z"
+}
+-----------------
+

@@ -1,0 +1,3123 @@
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740865234960
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:40:36.332Z
+METADATA: {
+  "customerName": "Test Name",
+  "customerContact": "224944848",
+  "vendorPublisher": "RDH",
+  "dateNeeded": "2025-04-16",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865234960
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:40:41.168Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:40:40.548Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865234960
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:43:26.595Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:43:25.884Z",
+  "order_number": "55555",
+  "estimated_arrival": "3/3/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740865234960
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:43:27.941Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:43:25.884Z",
+  "order_number": "55555",
+  "estimated_arrival": "3/3/2025"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865234960
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:43:35.932Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:43:35.250Z",
+  "arrival_date": "3/10/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740865234960
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:43:37.196Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:43:35.250Z",
+  "arrival_date": "3/10/2025"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865234960
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:45:17.483Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:45:16.615Z",
+  "notification_method": "phone",
+  "notification_date": "3/10/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740865234960
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:45:18.749Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:45:16.615Z",
+  "notification_method": "phone",
+  "notification_date": "3/10/2025"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865234960
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:47:01.257Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:47:00.570Z",
+  "payment_method": "55",
+  "payment_amount": "55"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740865234960
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:47:02.531Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:47:00.570Z",
+  "payment_method": "55",
+  "payment_amount": "55"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740865234960
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:47:29.146Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:47:28.486Z",
+  "completion_date": "3/10"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740865234960
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T21:47:30.395Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T21:47:28.486Z",
+  "completion_date": "3/10"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740866926559
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:08:48.322Z
+METADATA: {
+  "customerName": "fjadsi",
+  "customerContact": "fasidjf",
+  "vendorPublisher": "fadij",
+  "dateNeeded": "2025-03-26",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740867330753
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:15:31.997Z
+METADATA: {
+  "customerName": "afds",
+  "customerContact": "fadsjf",
+  "vendorPublisher": "fadsif",
+  "dateNeeded": "2025-03-20",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867330753
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:15:33.802Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:15:33.227Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867330753
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:15:46.010Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:15:45.360Z",
+  "ordered_by": "Me",
+  "order_method": "email",
+  "estimated_arrival": "2/2/2025"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740867330753
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:15:47.159Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:15:45.360Z",
+  "ordered_by": "Me",
+  "order_method": "email",
+  "estimated_arrival": "2/2/2025"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867330753
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:16:00.811Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:15:59.851Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740867386780
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:16:27.866Z
+METADATA: {
+  "customerName": "fadf",
+  "customerContact": "fadsf",
+  "vendorPublisher": "fads",
+  "dateNeeded": "2025-03-28",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867386780
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:16:29.456Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:16:28.873Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867386780
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:16:37.639Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:16:36.943Z",
+  "ordered_by": "me",
+  "order_method": "daf",
+  "estimated_arrival": "fadsfsadf"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740867386780
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:16:38.831Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:16:36.943Z",
+  "ordered_by": "me",
+  "order_method": "daf",
+  "estimated_arrival": "fadsfsadf"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867386780
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:24:13.566Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:24:12.320Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740867876847
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:24:38.124Z
+METADATA: {
+  "customerName": "fad",
+  "customerContact": "fadij",
+  "vendorPublisher": "fadsij",
+  "dateNeeded": "2025-03-13",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867876847
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:24:40.096Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:24:39.474Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867876847
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:24:50.956Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:24:50.050Z",
+  "ordered_by": "fwefwae",
+  "order_method": "wefaewf",
+  "estimated_arrival": "faewfeaw"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740867876847
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:24:52.059Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:24:50.050Z",
+  "ordered_by": "fwefwae",
+  "order_method": "wefaewf",
+  "estimated_arrival": "faewfeaw"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740867983098
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:26:24.739Z
+METADATA: {
+  "customerName": "afasdf",
+  "customerContact": "fadsf",
+  "vendorPublisher": "fadsf",
+  "dateNeeded": "2025-03-27",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867983098
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:26:26.683Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:26:26.075Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740867983098
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:26:34.309Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:26:33.660Z",
+  "ordered_by": "dsvsdv",
+  "order_method": "cvxcxzv",
+  "estimated_arrival": "vzxcxvxcz"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740867983098
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:26:35.548Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:26:33.660Z",
+  "ordered_by": "dsvsdv",
+  "order_method": "cvxcxzv",
+  "estimated_arrival": "vzxcxvxcz"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740868096398
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:28:17.800Z
+METADATA: {
+  "customerName": "afdas",
+  "customerContact": "dsafase",
+  "vendorPublisher": "dasf",
+  "dateNeeded": "2025-03-17",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740868096398
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:28:20.348Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:28:19.799Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740868096398
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:28:27.874Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:28:27.216Z",
+  "ordered_by": "dafdsf",
+  "order_method": "adfads",
+  "estimated_arrival": "asfds"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740868096398
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:28:29.108Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:28:27.216Z",
+  "ordered_by": "dafdsf",
+  "order_method": "adfads",
+  "estimated_arrival": "asfds"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740868096398
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:30:17.441Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:30:16.435Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740868234213
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:30:35.713Z
+METADATA: {
+  "customerName": "dfdsaf",
+  "customerContact": "asdf",
+  "vendorPublisher": "adf",
+  "dateNeeded": "2025-03-26",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740868234213
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:30:37.703Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:30:36.957Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740868234213
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:30:43.678Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:30:42.823Z",
+  "ordered_by": "adf",
+  "order_method": "adsf",
+  "estimated_arrival": "adf"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740868234213
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:30:44.999Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:30:42.823Z",
+  "ordered_by": "adf",
+  "order_method": "adsf",
+  "estimated_arrival": "adf"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1740868509631
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:35:11.491Z
+METADATA: {
+  "customerName": "dfsdaf",
+  "customerContact": "faidsfj",
+  "vendorPublisher": "fasdfij",
+  "dateNeeded": "2025-03-19",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740868509631
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:35:13.397Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:35:12.655Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740868509631
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:35:20.957Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:35:20.063Z",
+  "ordered_by": "fdsfa",
+  "order_method": "asdfads",
+  "estimated_arrival": "adsfdsf"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1740868509631
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-01T22:35:22.044Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-01T22:35:20.063Z",
+  "ordered_by": "fdsfa",
+  "order_method": "asdfads",
+  "estimated_arrival": "adsfdsf"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1740868509631
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T18:06:06.846Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T18:06:04.892Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741025319249
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T18:08:40.665Z
+METADATA: {
+  "customerName": "Test Name",
+  "customerContact": "212-876-5550",
+  "vendorPublisher": "RDH",
+  "dateNeeded": "2025-03-02",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741025319249
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T18:08:43.223Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T18:08:42.627Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741025319249
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T18:46:34.673Z
+METADATA: {
+  "ordered_by": "Gil",
+  "order_method": "Phone",
+  "estimated_arrival": "2025-03-05",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T18:46:33.249Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741025319249
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T18:46:48.125Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T18:46:47.449Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741025319249
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T18:46:49.316Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T18:46:47.449Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741025319249
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: CANCELLED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T18:51:25.665Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T18:51:24.709Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741027971368
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T18:52:52.982Z
+METADATA: {
+  "customerName": "GC",
+  "customerContact": "gc@gc.com",
+  "vendorPublisher": "RDH",
+  "dateNeeded": "2025-03-02",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741027971368
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T18:54:10.954Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T18:54:10.153Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741027971368
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T18:55:41.594Z
+METADATA: {
+  "ordered_by": "Gil",
+  "order_method": "Vendor Website",
+  "estimated_arrival": "2025-03-05",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T18:55:40.738Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741027971368
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T18:55:59.870Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T18:55:59.154Z",
+  "arrival_date": "2025-03-02"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741027971368
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T18:56:01.319Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T18:55:59.154Z",
+  "arrival_date": "2025-03-02"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741027971368
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T19:01:46.097Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T19:01:45.081Z",
+  "notification_method": "Text Message",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741027971368
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T19:01:47.581Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T19:01:45.081Z",
+  "notification_method": "Text Message",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741027971368
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T19:02:43.835Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T19:02:43.022Z",
+  "payment_method": "POS",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741027971368
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T19:02:45.265Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T19:02:43.022Z",
+  "payment_method": "POS",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741027971368
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T19:02:56.379Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T19:02:55.611Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741027971368
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T19:02:57.794Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T19:02:55.611Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741037138775
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:25:40.370Z
+METADATA: {
+  "customerName": "Test",
+  "customerContact": "Test",
+  "vendorPublisher": "Test",
+  "dateNeeded": "2025-03-02",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741037138775
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:26:05.644Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:26:04.761Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741037138775
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:26:20.078Z
+METADATA: {
+  "ordered_by": "Gil",
+  "order_method": "Vendor Website",
+  "estimated_arrival": "2025-03-04",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:26:18.928Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741037138775
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:26:29.895Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:26:29.003Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741037138775
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:26:31.453Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:26:29.003Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741037138775
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:26:57.139Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:26:56.093Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-02"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741037138775
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:26:59.021Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:26:56.093Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-02"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741037138775
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:27:17.166Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:27:16.328Z",
+  "payment_method": "POS",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741037138775
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:27:18.954Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:27:16.328Z",
+  "payment_method": "POS",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741037138775
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:27:29.407Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:27:28.363Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741037138775
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T21:27:31.145Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T21:27:28.363Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741039697878
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:08:20.546Z
+METADATA: {
+  "customerName": "Gil",
+  "customerContact": "Gil",
+  "vendorPublisher": "Gil",
+  "dateNeeded": "2025-03-05",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741039697878
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:08:22.907Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:08:22.103Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741039697878
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:08:45.182Z
+METADATA: {
+  "ordered_by": "Gil",
+  "order_method": "Phone",
+  "estimated_arrival": "2025-03-05",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:08:44.219Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741039697878
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:08:55.325Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:08:54.437Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741039697878
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:08:57.017Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:08:54.437Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741039697878
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:09:07.904Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:09:07.016Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741039697878
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:09:09.527Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:09:07.016Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741039697878
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:09:17.129Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:09:16.209Z",
+  "payment_method": "Shopify",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741039697878
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:09:18.648Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:09:16.209Z",
+  "payment_method": "Shopify",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741039697878
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:09:26.514Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:09:25.739Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741039697878
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:09:28.015Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:09:25.739Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741040427950
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:20:30.376Z
+METADATA: {
+  "customerName": "gil",
+  "customerContact": "gil",
+  "vendorPublisher": "gil",
+  "dateNeeded": "2025-03-05",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040427950
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:20:42.850Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:20:41.905Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040427950
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:21:07.226Z
+METADATA: {
+  "ordered_by": "Gil",
+  "order_method": "Phone",
+  "estimated_arrival": "2025-03-05",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:21:06.347Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040427950
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:21:20.430Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:21:19.601Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741040427950
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:21:21.949Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:21:19.601Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040427950
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:21:51.992Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:21:51.040Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741040427950
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:21:53.666Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:21:51.040Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040427950
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:22:13.008Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:22:12.178Z",
+  "payment_method": "POS",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741040427950
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:22:14.552Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:22:12.178Z",
+  "payment_method": "POS",
+  "order_number": "55555"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040427950
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:22:22.053Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:22:21.262Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741040427950
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:22:23.657Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:22:21.262Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741040794802
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:26:36.752Z
+METADATA: {
+  "customerName": "gi",
+  "customerContact": "gi",
+  "vendorPublisher": "gig",
+  "dateNeeded": "2025-03-05",
+  "priority": "low"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040794802
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:27:00.024Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:26:59.248Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040794802
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:27:13.957Z
+METADATA: {
+  "ordered_by": "gdsag",
+  "order_method": "Vendor Website",
+  "estimated_arrival": "2025-03-05",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:27:13.246Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040794802
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:27:34.648Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:27:33.884Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741040794802
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:27:35.893Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:27:33.884Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040794802
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:27:50.543Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:27:49.837Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-02"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741040794802
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:27:51.910Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:27:49.837Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-02"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040794802
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:28:13.654Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:28:12.961Z",
+  "payment_method": "Shopify",
+  "order_number": "44444"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741040794802
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:28:14.985Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:28:12.961Z",
+  "payment_method": "Shopify",
+  "order_number": "44444"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040794802
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:28:20.025Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:28:19.454Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741040794802
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:28:21.244Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:28:19.454Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741040993451
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:29:55.030Z
+METADATA: {
+  "customerName": "fasdfasd",
+  "customerContact": "asdfasd",
+  "vendorPublisher": "asfasd",
+  "dateNeeded": "2025-03-04",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040993451
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:29:57.335Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:29:56.707Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040993451
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:30:08.643Z
+METADATA: {
+  "ordered_by": "adsfasd",
+  "order_method": "Phone",
+  "estimated_arrival": "2025-03-04",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:30:07.941Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040993451
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:30:15.779Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:30:15.078Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741040993451
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:30:17.100Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:30:15.078Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040993451
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:30:50.719Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:30:49.570Z",
+  "notification_method": "Email",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741040993451
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:30:52.154Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:30:49.570Z",
+  "notification_method": "Email",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040993451
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:31:34.903Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:31:34.085Z",
+  "payment_method": "Shopify",
+  "order_number": "af233223"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741040993451
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:31:36.201Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:31:34.085Z",
+  "payment_method": "Shopify",
+  "order_number": "af233223"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741040993451
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:31:42.738Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:31:41.915Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741040993451
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:31:44.397Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:31:41.915Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741041141312
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:32:22.878Z
+METADATA: {
+  "customerName": "fasdf",
+  "customerContact": "fadsf",
+  "vendorPublisher": "asdfasd",
+  "dateNeeded": "2025-03-04",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041141312
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:32:24.940Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:32:24.225Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041141312
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:32:37.707Z
+METADATA: {
+  "ordered_by": "afdsfa",
+  "order_method": "Phone",
+  "estimated_arrival": "2025-03-04",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:32:37.029Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041141312
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:32:44.574Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:32:43.854Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041141312
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:32:45.858Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:32:43.854Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041141312
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:33:33.689Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:33:32.794Z",
+  "notification_method": "Email",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041141312
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:33:34.945Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:33:32.794Z",
+  "notification_method": "Email",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041141312
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:33:50.786Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:33:49.979Z",
+  "payment_method": "POS",
+  "order_number": "f23233"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041141312
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:33:52.060Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:33:49.979Z",
+  "payment_method": "POS",
+  "order_number": "f23233"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041141312
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:33:58.266Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:33:57.686Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041141312
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:33:59.535Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:33:57.686Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741041284647
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:34:46.069Z
+METADATA: {
+  "customerName": "safasd",
+  "customerContact": "asdfads",
+  "vendorPublisher": "asdfasd",
+  "dateNeeded": "2025-03-04",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041284647
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:34:47.918Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:34:47.303Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041284647
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:34:58.550Z
+METADATA: {
+  "ordered_by": "dafsdaf",
+  "order_method": "Vendor Website",
+  "estimated_arrival": "2025-03-04",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:34:57.867Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041284647
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:35:53.759Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:35:52.687Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041284647
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:35:55.286Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:35:52.687Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041284647
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:36:05.560Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:36:04.927Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041284647
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:36:06.758Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:36:04.927Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041284647
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:36:14.060Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:36:13.469Z",
+  "payment_method": "Shopify",
+  "order_number": "fa32332"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041284647
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:36:15.159Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:36:13.469Z",
+  "payment_method": "Shopify",
+  "order_number": "fa32332"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041284647
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:36:23.304Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:36:22.625Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041284647
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:36:24.505Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:36:22.625Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:39:20.311Z
+METADATA: {
+  "customerName": "dsD",
+  "customerContact": "adsfdsa",
+  "vendorPublisher": "adfads",
+  "dateNeeded": "2025-03-04",
+  "priority": "low"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:39:22.296Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:39:21.583Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:39:36.776Z
+METADATA: {
+  "ordered_by": "dasfads",
+  "order_method": "Phone",
+  "estimated_arrival": "2025-03-04",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:39:36.088Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:39:42.888Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:39:42.272Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:39:44.003Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:39:42.272Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:39:50.812Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:39:50.154Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:39:52.121Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:39:50.154Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:40:06.127Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:40:05.464Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:40:07.205Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:40:05.464Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:40:12.483Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:40:11.933Z",
+  "payment_method": "Shopify",
+  "order_number": "eweewewef"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:40:13.669Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:40:11.933Z",
+  "payment_method": "Shopify",
+  "order_number": "eweewewef"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:40:23.392Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:40:22.756Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741041558402
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:40:24.852Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:40:22.756Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741042212862
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:50:15.099Z
+METADATA: {
+  "customerName": "fadsf",
+  "customerContact": "adfds",
+  "vendorPublisher": "adf",
+  "dateNeeded": "2025-03-04",
+  "priority": "low"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741042212862
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:50:17.308Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:50:16.545Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741042212862
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:50:34.294Z
+METADATA: {
+  "ordered_by": "adf",
+  "order_method": "Phone",
+  "estimated_arrival": "2025-03-04",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:50:33.423Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741042212862
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:50:43.970Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:50:43.166Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741042212862
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:50:45.453Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:50:43.166Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741042212862
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:50:59.528Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:50:58.940Z",
+  "notification_method": "Email",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741042212862
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:51:00.735Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:50:58.940Z",
+  "notification_method": "Email",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741042212862
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:51:06.985Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:51:06.254Z",
+  "payment_method": "POS",
+  "order_number": "fsdfasd"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741042212862
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:51:08.467Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:51:06.254Z",
+  "payment_method": "POS",
+  "order_number": "fsdfasd"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741042212862
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:51:15.822Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:51:14.957Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741042212862
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:51:17.167Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:51:14.957Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741042512230
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:55:13.991Z
+METADATA: {
+  "customerName": "dsfsdf",
+  "customerContact": "sdfsd",
+  "vendorPublisher": "sdfsd",
+  "dateNeeded": "2025-03-04",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741042512230
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:55:16.240Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:55:15.667Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741042512230
+REQUEST TYPE: special_order
+PREVIOUS STATUS: IN_PROGRESS
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:55:27.652Z
+METADATA: {
+  "ordered_by": "dfsd",
+  "order_method": "Phone",
+  "estimated_arrival": "2025-03-04",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:55:26.906Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741042512230
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:55:40.381Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:55:39.725Z",
+  "arrival_date": "2025-03-03"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741042512230
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:55:41.860Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:55:39.725Z",
+  "arrival_date": "2025-03-03"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741042512230
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:55:51.907Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:55:51.064Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741042512230
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:55:53.371Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:55:51.064Z",
+  "notification_method": "Phone",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741042512230
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:57:09.016Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:57:08.135Z",
+  "payment_method": "POS",
+  "order_number": "fafdsdsaf"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741042512230
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:57:10.409Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:57:08.135Z",
+  "payment_method": "POS",
+  "order_number": "fafdsdsaf"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741042512230
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:57:24.153Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:57:23.394Z",
+  "completion_date": "2025-03-03"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741042512230
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-03T22:57:25.396Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-03T22:57:23.394Z",
+  "completion_date": "2025-03-03"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741106871260
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T16:47:53.959Z
+METADATA: {
+  "customerName": "adfasd",
+  "customerContact": "asdfas",
+  "vendorPublisher": "safsad",
+  "dateNeeded": "2025-03-05",
+  "priority": "standard"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741106871260
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: IN_PROGRESS
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T16:48:03.090Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T16:48:02.394Z"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741108012821
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:06:55.358Z
+METADATA: {
+  "customerName": "afda",
+  "customerContact": "asdf",
+  "vendorPublisher": "adsf",
+  "dateNeeded": "2025-03-05",
+  "priority": "high"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741108012821
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NEW
+NEW STATUS: ORDERED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:07:09.014Z
+METADATA: {
+  "ordered_by": "asdfsad",
+  "order_method": "Email",
+  "estimated_arrival": "2025-03-05",
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:07:08.297Z"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741108012821
+REQUEST TYPE: special_order
+PREVIOUS STATUS: ORDERED
+NEW STATUS: RECEIVED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:07:13.565Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:07:12.918Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741108012821
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:07:14.842Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:07:12.918Z",
+  "arrival_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741108012821
+REQUEST TYPE: special_order
+PREVIOUS STATUS: RECEIVED
+NEW STATUS: NOTIFIED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:07:19.543Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:07:18.857Z",
+  "notification_method": "Email",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741108012821
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:07:20.839Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:07:18.857Z",
+  "notification_method": "Email",
+  "notification_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741108012821
+REQUEST TYPE: special_order
+PREVIOUS STATUS: NOTIFIED
+NEW STATUS: PAID
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:07:27.852Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:07:27.224Z",
+  "payment_method": "Shopify",
+  "order_number": "fadsfads"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741108012821
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:07:29.045Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:07:27.224Z",
+  "payment_method": "Shopify",
+  "order_number": "fadsfads"
+}
+-----------------
+
+
+EVENT: STATUS_CHANGE
+-----------------
+REQUEST ID: REQ-1741108012821
+REQUEST TYPE: special_order
+PREVIOUS STATUS: PAID
+NEW STATUS: COMPLETED
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:07:32.638Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:07:32.065Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: FIELDS_ADDED
+-----------------
+REQUEST ID: REQ-1741108012821
+REQUEST TYPE: special_order
+
+
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T17:07:33.937Z
+METADATA: {
+  "updatedBy": "U02Q4HK2XTR",
+  "updatedAt": "2025-03-04T17:07:32.065Z",
+  "completion_date": "2025-03-04"
+}
+-----------------
+
+
+EVENT: REQUEST_CREATED
+-----------------
+REQUEST ID: REQ-1741118428889
+REQUEST TYPE: special_order
+
+NEW STATUS: NEW
+USER: U02Q4HK2XTR
+TIMESTAMP: 2025-03-04T20:00:31.148Z
+METADATA: {
+  "customerName": "test",
+  "customerContact": "test@test.com",
+  "vendorPublisher": "test",
+  "isbn": "test",
+  "dateNeeded": "2025-03-07",
+  "priority": "standard"
+}
+-----------------
+
