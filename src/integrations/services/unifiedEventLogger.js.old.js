@@ -1,10 +1,26 @@
 // integrations/services/unifiedEventLogger.js
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+const { JWT } = require('google-auth-library');
 const fs = require('fs');
 const path = require('path');
-const { getCollections } = require('../../database/mongodb');
 
 class UnifiedEventLogger {
   constructor() {
+    // Initialize Google Sheets authentication
+    this.serviceAccountAuth = new JWT({
+      email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      scopes: ['https://www.googleapis.com/auth/spreadsheets']
+    });
+
+    this.spreadsheetId = process.env.GOOGLE_SPREADSHEET_ID;
+    
+    // Configuration for sheet names
+    this.SHEETS = {
+      PRIMARY_REQUESTS: 'Requests',
+      EVENT_LOG: 'Event Log'
+    };
+
     // Setup local logging directory
     this.logDirectory = path.join(__dirname, '../../../logs');
     if (!fs.existsSync(this.logDirectory)) {
@@ -24,6 +40,7 @@ class UnifiedEventLogger {
     // Common status flow for all request types based on the CSV
     const COMMON_STATUSES = [
       'NEW',
+      // 'IN_PROGRESS', // Removed
       'ORDERED',
       'RECEIVED',
       'NOTIFIED',
@@ -32,9 +49,22 @@ class UnifiedEventLogger {
       'CANCELLED'
     ];
 
+    // Define standard transitions that apply to all request types
+    const STANDARD_TRANSITIONS = {
+      'NEW': ['IN_PROGRESS', 'ORDERED', 'CANCELLED'],
+      'IN_PROGRESS': ['ORDERED', 'CANCELLED'],
+      'ORDERED': ['RECEIVED', 'CANCELLED'],
+      'RECEIVED': ['NOTIFIED', 'CANCELLED'],
+      'NOTIFIED': ['PAID', 'CANCELLED'],
+      'PAID': ['COMPLETED', 'CANCELLED'],
+      'COMPLETED': [],
+      'CANCELLED': []
+    };
+
     // Define updated transitions that prevent simultaneous Start Work and Mark as Ordered
     const IMPROVED_TRANSITIONS = {
-        'NEW': ['ORDERED', 'CANCELLED'],
+        'NEW': ['ORDERED', 'CANCELLED'], // Only allow Start Work from NEW
+        // 'IN_PROGRESS': ['ORDERED', 'CANCELLED'], // REMOVED Then allow Ordered after IN_PROGRESS
         'ORDERED': ['RECEIVED', 'CANCELLED'],
         'RECEIVED': ['NOTIFIED', 'CANCELLED'],
         'NOTIFIED': ['PAID', 'CANCELLED'],
@@ -53,16 +83,16 @@ class UnifiedEventLogger {
 
     // Request type configurations with status transitions
     this.REQUEST_TYPES = {
-      'special_order': {
-        possibleStatuses: COMMON_STATUSES,
-        statusTransitions: IMPROVED_TRANSITIONS,
-        requiredFieldsPerStatus: {
-          'ORDERED': ['ordered_by', 'order_method', 'estimated_arrival'],
-          'RECEIVED': ['arrival_date'],
-          'NOTIFIED': ['notification_method', 'notification_date'],
-          'PAID': ['payment_method', 'order_number'],
-          'COMPLETED': ['completion_date']
-        }
+        'special_order': {
+          possibleStatuses: COMMON_STATUSES,
+          statusTransitions: IMPROVED_TRANSITIONS,
+          requiredFieldsPerStatus: {
+            'ORDERED': ['ordered_by', 'order_method', 'estimated_arrival'],
+            'RECEIVED': ['arrival_date'],
+            'NOTIFIED': ['notification_method', 'notification_date'],
+            'PAID': ['payment_method', 'order_number'],
+            'COMPLETED': ['completion_date']
+          }
       },
       'book_hold': {
         possibleStatuses: COMMON_STATUSES,
@@ -107,7 +137,7 @@ class UnifiedEventLogger {
       },
       'personalization': {
         possibleStatuses: COMMON_STATUSES,
-        statusTransitions: IMPROVED_TRANSITIONS,
+        statusTransitions: STANDARD_TRANSITIONS,
         requiredFieldsPerStatus: {
           'IN_PROGRESS': ['personalization_details', 'estimated_completion'],
           'NOTIFIED': ['notification_method', 'notification_date'],
@@ -135,7 +165,50 @@ class UnifiedEventLogger {
     return true;
   }
 
-  // Log an event to both MongoDB and local file system
+  // Get a specific sheet from the Google Spreadsheet
+  async getSheet(sheetName) {
+    try {
+      const doc = new GoogleSpreadsheet(this.spreadsheetId, this.serviceAccountAuth);
+      await doc.loadInfo();
+      
+      // Try to find sheet by name
+      let sheet = doc.sheetsByTitle[sheetName];
+      
+      if (!sheet) {
+        console.warn(`Sheet '${sheetName}' not found, will create it`);
+        
+        // Create the sheet if it doesn't exist
+        if (sheetName === this.SHEETS.PRIMARY_REQUESTS) {
+          sheet = await doc.addSheet({
+            title: sheetName,
+            headerValues: [
+              'RequestID', 'Type', 'CustomerName', 'CustomerContact', 
+              'VendorPublisher', 'ISBN', 'Details', 'DateNeeded', 'Condition',
+              'Priority', 'Status', 'CreatedAt', 'UpdatedAt',
+              'AssignedTo', 'Notes'
+            ]
+          });
+        } else if (sheetName === this.SHEETS.EVENT_LOG) {
+          sheet = await doc.addSheet({
+            title: sheetName,
+            headerValues: [
+              'RequestID', 'RequestType', 'Action', 'PreviousStatus',
+              'NewStatus', 'Timestamp', 'UserId', 'AdditionalMetadata'
+            ]
+          });
+        } else {
+          throw new Error(`Unknown sheet type: ${sheetName}`);
+        }
+      }
+
+      return sheet;
+    } catch (error) {
+      console.error(`Error accessing sheet '${sheetName}':`, error);
+      throw error;
+    }
+  }
+
+  // Log an event to both Google Sheets and local file system
   async logEvent(eventData) {
     try {
       const { 
@@ -148,28 +221,28 @@ class UnifiedEventLogger {
         additionalMetadata 
       } = eventData;
 
-      // 1. Log to MongoDB
+      // 1. Log to Google Sheets
       try {
-        const { events } = await getCollections();
+        const eventLogSheet = await this.getSheet(this.SHEETS.EVENT_LOG);
         
-        const result = await events.insertOne({
-          requestId,
-          requestType,
-          action,
-          previousStatus: previousStatus || '',
-          newStatus: newStatus || '',
-          timestamp: new Date(),
-          userId: userId || 'system',
-          additionalMetadata: additionalMetadata || {}
+        await eventLogSheet.addRow({
+          RequestID: requestId,
+          RequestType: requestType,
+          Action: action,
+          PreviousStatus: previousStatus || '',
+          NewStatus: newStatus || '',
+          Timestamp: new Date().toISOString(),
+          UserId: userId || 'system',
+          AdditionalMetadata: JSON.stringify(additionalMetadata || {})
         });
         
-        console.log('Event logged to MongoDB successfully', result.insertedId);
-      } catch (dbError) {
-        console.error('Failed to log event to MongoDB:', dbError);
-        // Continue with file logging even if MongoDB logging fails
+        console.log('Event logged to Google Sheets successfully');
+      } catch (sheetsError) {
+        console.error('Failed to log event to Google Sheets:', sheetsError);
+        // Continue with file logging even if Sheets logging fails
       }
 
-      // 2. Log to file system (backup)
+      // 2. Log to file system
       try {
         const logFileName = `${requestType}_events.log`;
         const logFilePath = path.join(this.logDirectory, logFileName);
@@ -238,7 +311,7 @@ METADATA: ${JSON.stringify(additionalMetadata || {}, null, 2)}
     return true;
   }
 
-  // Log a new request to MongoDB
+  // Log a new request to both systems
   async logNewRequest(requestData) {
     try {
       const { 
@@ -263,32 +336,29 @@ METADATA: ${JSON.stringify(additionalMetadata || {}, null, 2)}
         return { success: false, error: validationError.message };
       }
 
-      // 1. Insert into MongoDB
+      // 1. Log to Google Sheets primary requests
       try {
-        const { requests } = await getCollections();
+        const primarySheet = await this.getSheet(this.SHEETS.PRIMARY_REQUESTS);
         
-        const now = new Date();
-        
-        const result = await requests.insertOne({
-          requestId,
-          type: requestType,
-          customerName,
-          customerContact,
-          vendorPublisher: vendorPublisher || '',
-          isbn: isbn || '',
-          details,
-          dateNeeded: dateNeeded || '',
-          condition: condition || '',
-          priority,
-          status: 'NEW',
-          createdAt: now,
-          updatedAt: now
+        await primarySheet.addRow({
+          RequestID: requestId,
+          Type: requestType,
+          CustomerName: customerName,
+          CustomerContact: customerContact,
+          VendorPublisher: vendorPublisher || '',
+          ISBN: isbn || '',
+          Details: details,
+          DateNeeded: dateNeeded || '',
+          Condition: condition || '',
+          Priority: priority,
+          Status: 'NEW',
+          CreatedAt: new Date().toISOString(),
+          UpdatedAt: new Date().toISOString()
         });
         
-        console.log('Request added to MongoDB successfully', result.insertedId);
-      } catch (dbError) {
-        console.error('Failed to add request to MongoDB:', dbError);
-        return { success: false, error: dbError.message };
+        console.log('Request added to primary sheet successfully');
+      } catch (sheetsError) {
+        console.error('Failed to add request to Google Sheets:', sheetsError);
       }
 
       // 2. Log event for request creation
@@ -309,7 +379,7 @@ METADATA: ${JSON.stringify(additionalMetadata || {}, null, 2)}
         }
       });
 
-      // 3. Log to file system (backup)
+      // 3. Log to file system
       try {
         const logFileName = `${requestType}_requests.log`;
         const logFilePath = path.join(this.logDirectory, logFileName);
@@ -345,7 +415,7 @@ TIMESTAMP: ${new Date().toISOString()}
     }
   }
 
-  // Update request status in MongoDB
+  // Update request status in both systems
   async updateRequestStatus(requestData) {
     try {
       const { 
@@ -376,7 +446,8 @@ TIMESTAMP: ${new Date().toISOString()}
         return { success: false, error: fieldsError.message };
       }
 
-      // 3. Log the event regardless of whether we can update the document
+      // 3. Log the event regardless of whether we can update the sheet
+      // This ensures we have a record of the attempted change
       await this.logEvent({
         requestType,
         requestId,
@@ -387,61 +458,71 @@ TIMESTAMP: ${new Date().toISOString()}
         additionalMetadata: additionalFields
       });
 
-      // 4. Update request in MongoDB
+      // 4. Update primary requests sheet
       try {
-        const { requests } = await getCollections();
+        const primarySheet = await this.getSheet(this.SHEETS.PRIMARY_REQUESTS);
         
-        // Prepare update data
-        const updateData = {
-          $set: {
-            status: newStatus,
-            updatedAt: new Date()
-          }
-        };
+        // Load all rows and log the count for debugging
+        const rows = await primarySheet.getRows();
+        console.log(`Found ${rows.length} total rows in the sheet`);
         
-        // Add any additional fields
-        for (const [key, value] of Object.entries(additionalFields)) {
-          updateData.$set[key] = value;
-        }
-        
-        // Update the document
-        const result = await requests.updateOne(
-          { requestId },
-          updateData
-        );
-        
-        if (result.matchedCount === 0) {
-          console.error(`No request found with ID: ${requestId}`);
+        // Find the specific request row
+        const requestRow = rows.find(row => row.RequestID === requestId);
+
+        if (requestRow) {
+          console.log(`Found request row with ID: ${requestId}`);
           
-          // If the request exists in logs but not in MongoDB, create it
+          // Update status
+          requestRow.Status = newStatus;
+          requestRow.UpdatedAt = new Date().toISOString();
+          
+          // Add any additional fields
+          Object.keys(additionalFields).forEach(key => {
+            // Only add fields that have column headers
+            if (primarySheet.headerValues.includes(key)) {
+              requestRow[key] = additionalFields[key];
+            }
+          });
+
+          await requestRow.save();
+          console.log('Primary sheet row updated successfully');
+          
+          return { 
+            success: true, 
+            message: `Request ${requestId} status updated from ${currentStatus} to ${newStatus}` 
+          };
+        } else {
+          console.error(`No row found with RequestID: ${requestId}`);
+          
+          // If the row doesn't exist in the sheet but we have a record of it,
+          // add a new row rather than failing
+          console.log('Attempting to create a new row for the request');
+          
+          // Try to get existing request info from file logs
+          const logFileName = `${requestType}_requests.log`;
+          const logFilePath = path.join(this.logDirectory, logFileName);
+          
           try {
-            console.log('Attempting to create a new document for the request');
-            
-            // Try to get existing request info from file logs
-            const logFileName = `${requestType}_requests.log`;
-            const logFilePath = path.join(this.logDirectory, logFileName);
-            
+            // Only proceed if the request was successfully logged but not in the sheet
             if (fs.existsSync(logFilePath)) {
               console.log(`Request log file exists: ${logFilePath}`);
               const fileContent = fs.readFileSync(logFilePath, 'utf-8');
               
               // Check if this request ID is in the logs
               if (fileContent.includes(requestId)) {
-                console.log('Request ID found in logs, creating new document in MongoDB');
+                console.log('Request ID found in logs, creating new row in sheet');
                 
-                // Insert a new document
-                const newDoc = {
-                  requestId,
-                  type: requestType,
-                  status: newStatus,
-                  createdAt: new Date(),
-                  updatedAt: new Date(),
+                // Add a new row to the sheet
+                await primarySheet.addRow({
+                  RequestID: requestId,
+                  Type: requestType,
+                  Status: newStatus,
+                  CreatedAt: new Date().toISOString(),
+                  UpdatedAt: new Date().toISOString(),
                   ...additionalFields
-                };
+                });
                 
-                await requests.insertOne(newDoc);
-                
-                console.log('Created new document in MongoDB for the request');
+                console.log('Created new row in sheet for the request');
                 return { 
                   success: true, 
                   message: `Created new entry for request ${requestId} with status ${newStatus}` 
@@ -454,15 +535,9 @@ TIMESTAMP: ${new Date().toISOString()}
           
           throw new Error(`No request found with ID: ${requestId}`);
         }
-        
-        console.log('MongoDB document updated successfully');
-        return { 
-          success: true, 
-          message: `Request ${requestId} status updated from ${currentStatus} to ${newStatus}` 
-        };
-      } catch (dbError) {
-        console.error('Error updating MongoDB:', dbError);
-        return { success: false, error: dbError.message };
+      } catch (sheetError) {
+        console.error('Error updating sheet:', sheetError);
+        return { success: false, error: sheetError.message };
       }
     } catch (error) {
       console.error('Error in updateRequestStatus:', error);
@@ -475,21 +550,24 @@ TIMESTAMP: ${new Date().toISOString()}
     try {
       console.log(`Looking for request with ID: ${requestId}`);
       
-      // Try MongoDB first
+      // Try Google Sheets first
       try {
-        const { requests } = await getCollections();
-        const request = await requests.findOne({ requestId });
+        const primarySheet = await this.getSheet(this.SHEETS.PRIMARY_REQUESTS);
+        const rows = await primarySheet.getRows();
+        
+        console.log(`Searching through ${rows.length} rows in sheet`);
+        const request = rows.find(row => row.RequestID === requestId);
         
         if (request) {
-          console.log(`Found request in MongoDB: ${requestId}`);
+          console.log(`Found request in sheet: ${requestId}`);
           return request;
         }
-      } catch (dbError) {
-        console.error('Error accessing MongoDB:', dbError);
+      } catch (sheetError) {
+        console.error('Error accessing Google Sheet:', sheetError);
       }
       
-      // If not found in MongoDB, check local logs (fallback)
-      console.log('Request not found in MongoDB, checking logs');
+      // If not found in sheets, check local logs
+      console.log('Request not found in sheet, checking logs');
       
       // Check all possible request type log files
       for (const requestType of Object.keys(this.REQUEST_TYPES)) {
@@ -520,15 +598,15 @@ TIMESTAMP: ${new Date().toISOString()}
               
               // Build a request object from log data
               return {
-                requestId,
-                type,
-                status, 
-                customerName,
-                customerContact,
-                details,
-                priority,
-                createdAt,
-                updatedAt: createdAt
+                RequestID: requestId,
+                Type: type,
+                Status: status, 
+                CustomerName: customerName,
+                CustomerContact: customerContact,
+                Details: details,
+                Priority: priority,
+                CreatedAt: createdAt,
+                UpdatedAt: createdAt
               };
             }
           }
@@ -543,51 +621,47 @@ TIMESTAMP: ${new Date().toISOString()}
     }
   }
 
-  // Search requests from MongoDB
+  // Search requests from Google Sheets
   async searchRequests(query, options = {}) {
     try {
       const { requestType, status, dateRange } = options;
-      const { requests } = await getCollections();
       
-      // Build MongoDB query
-      const mongoQuery = {};
+      const primarySheet = await this.getSheet(this.SHEETS.PRIMARY_REQUESTS);
+      const rows = await primarySheet.getRows();
       
-      // Apply request type filter if provided
-      if (requestType) {
-        mongoQuery.type = requestType;
-      }
-      
-      // Apply status filter if provided
-      if (status) {
-        mongoQuery.status = status;
-      }
-      
-      // Apply date range filter if provided
-      if (dateRange) {
-        mongoQuery.createdAt = {};
-        if (dateRange.from) {
-          mongoQuery.createdAt.$gte = new Date(dateRange.from);
+      // Filter rows based on query and options
+      return rows.filter(row => {
+        // Apply request type filter if provided
+        if (requestType && row.Type !== requestType) {
+          return false;
         }
-        if (dateRange.to) {
-          mongoQuery.createdAt.$lte = new Date(dateRange.to);
+        
+        // Apply status filter if provided
+        if (status && row.Status !== status) {
+          return false;
         }
-      }
-      
-      // Apply text search if query is provided
-      if (query) {
-        // Simple approach: search across multiple fields
-        mongoQuery.$or = [
-          { requestId: { $regex: query, $options: 'i' } },
-          { customerName: { $regex: query, $options: 'i' } },
-          { customerContact: { $regex: query, $options: 'i' } },
-          { details: { $regex: query, $options: 'i' } },
-          { isbn: { $regex: query, $options: 'i' } },
-          { vendorPublisher: { $regex: query, $options: 'i' } }
-        ];
-      }
-      
-      // Execute query
-      return await requests.find(mongoQuery).toArray();
+        
+        // Apply date range filter if provided
+        if (dateRange) {
+          const createdAt = new Date(row.CreatedAt);
+          if (dateRange.from && createdAt < new Date(dateRange.from)) {
+            return false;
+          }
+          if (dateRange.to && createdAt > new Date(dateRange.to)) {
+            return false;
+          }
+        }
+        
+        // Apply text search if query is provided
+        if (query) {
+          // Search across all columns
+          return Object.values(row).some(value => 
+            value && value.toString().toLowerCase().includes(query.toLowerCase())
+          );
+        }
+        
+        return true;
+      });
     } catch (error) {
       console.error('Error searching requests:', error);
       throw error;
@@ -597,15 +671,12 @@ TIMESTAMP: ${new Date().toISOString()}
   // Get event history for a specific request
   async getRequestHistory(requestId) {
     try {
-      const { events } = await getCollections();
+      const eventLogSheet = await this.getSheet(this.SHEETS.EVENT_LOG);
+      const rows = await eventLogSheet.getRows();
       
-      // Query events collection for the specific requestId
-      const history = await events
-        .find({ requestId })
-        .sort({ timestamp: 1 }) // Sort chronologically
-        .toArray();
-        
-      return history;
+      return rows
+        .filter(row => row.RequestID === requestId)
+        .sort((a, b) => new Date(a.Timestamp) - new Date(b.Timestamp));
     } catch (error) {
       console.error('Error retrieving request history:', error);
       throw error;

@@ -1,0 +1,37 @@
+{
+  "name": "request-mgmt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@slack/bolt": "^4.2.0",
+    "@slack/web-api": "^7.8.0",
+    "dotenv": "^16.4.7",
+    "express": "^5.0.1",
+    "google-auth-library": "^9.15.1",
+    "google-spreadsheet": "^4.1.4",
+    "googleapis": "^144.0.0",
+    "mongodb": "^6.14.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kitchenartsandletters/request-mgmt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kitchenartsandletters/request-mgmt/issues"
+  },
+  "homepage": "https://github.com/kitchenartsandletters/request-mgmt#readme"
+}

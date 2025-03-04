@@ -1,21 +1,59 @@
 require('dotenv').config();
 const { App } = require('@slack/bolt');
 const { WebClient } = require('@slack/web-api');
+const { connectToDatabase } = require('./database/mongodb');
 const UnifiedEventLogger = require('./integrations/services/unifiedEventLogger');
 const RequestDashboard = require('./integrations/requestDashboard');
 const BookHoldPrinter = require('./integrations/bookHoldPrinter');
 
+// Configure request types for book holds
 UnifiedEventLogger.REQUEST_TYPES.book_hold.requiredFieldsPerStatus.PAID = ['payment_method', 'order_number'];
 console.log('Updated PAID status requirements:', 
   UnifiedEventLogger.REQUEST_TYPES.book_hold.requiredFieldsPerStatus.PAID);
 
-// Initialize Slack App with Socket Mode
-const app = new App({
-  token: process.env.SLACK_BOT_TOKEN,
-  signingSecret: process.env.SLACK_SIGNING_SECRET,
-  socketMode: true,
-  appToken: process.env.SLACK_APP_TOKEN
-});
+// Initialize MongoDB connection
+async function initDatabase() {
+  try {
+    await connectToDatabase();
+    console.log('MongoDB connection initialized successfully');
+  } catch (error) {
+    console.error('Failed to initialize MongoDB connection:', error);
+    process.exit(1); // Exit on database connection failure
+  }
+}
+
+// Initialize Slack App with Socket Mode for development or HTTP for production
+let app;
+
+if (process.env.NODE_ENV === 'production') {
+  // Use HTTP receiver for production
+  app = new App({
+    token: process.env.SLACK_BOT_TOKEN,
+    signingSecret: process.env.SLACK_SIGNING_SECRET,
+    // Enable request signing in production for security
+    processBeforeResponse: true
+  });
+  
+  // Add a health check endpoint for Railway
+  const express = require('express');
+  const expressApp = express();
+  
+  // Health check endpoint
+  expressApp.get('/health', (req, res) => {
+    res.status(200).send('OK');
+  });
+  
+  // Use Express as the receiver
+  app.receiver.app = expressApp;
+} else {
+  // Use Socket Mode for development
+  app = new App({
+    token: process.env.SLACK_BOT_TOKEN,
+    signingSecret: process.env.SLACK_SIGNING_SECRET,
+    socketMode: true,
+    appToken: process.env.SLACK_APP_TOKEN
+  });
+}
 
 // ========= VALIDATION FUNCTIONS ============
 
@@ -3257,8 +3295,15 @@ app.error(async (error) => {
 // Start the app
 (async () => {
   try {
-    await app.start(process.env.PORT || 3000);
-    console.log('⚡️ Request Management app is running!');
+    // Initialize database connection
+    await initDatabase();
+    
+    // Determine the port for production
+    const port = process.env.PORT || 3000;
+    
+    // Start the app
+    await app.start(port);
+    console.log(`⚡️ Request Management app is running on port ${port}!`);
   } catch (error) {
     console.error('Failed to start app:', error);
   }

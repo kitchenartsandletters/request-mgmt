@@ -1,59 +1,34 @@
-const { GoogleSpreadsheet } = require('google-spreadsheet');
-const { JWT } = require('google-auth-library');
+// integrations/requestDashboard.js
+const { getCollections } = require('../database/mongodb');
 
 class RequestDashboard {
   constructor() {
-    // Initialize Google Sheets authentication
-    this.serviceAccountAuth = new JWT({
-      email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-      scopes: ['https://www.googleapis.com/auth/spreadsheets']
-    });
-
-    this.spreadsheetId = process.env.GOOGLE_SPREADSHEET_ID;
+    // No initialization needed for MongoDB
   }
 
   async generateDashboard() {
     try {
-      const doc = new GoogleSpreadsheet(this.spreadsheetId, this.serviceAccountAuth);
-      await doc.loadInfo();
+      // Get MongoDB collections
+      const { requests } = await getCollections();
       
-      // Assume first sheet is the main requests log
-      const requestsSheet = doc.sheetsByIndex[0];
-      const rows = await requestsSheet.getRows();
-  
-      // Create or get Dashboard sheet
-      let dashboardSheet = doc.sheetsByTitle['Dashboard'];
-      if (!dashboardSheet) {
-        dashboardSheet = await doc.addSheet({ 
-          title: 'Dashboard', 
-          headerValues: ['Metric', 'Value', 'Details']
-        });
-      }
-  
-      // Ensure sheet is clear and has correct headers
-      await dashboardSheet.clear();
-      await dashboardSheet.setHeaderRow(['Metric', 'Value', 'Details']);
+      // Get all requests
+      const rows = await requests.find({}).toArray();
   
       // Calculate Metrics
       const metrics = this.calculateMetrics(rows);
   
-      // Write Metrics to Dashboard
-      await dashboardSheet.addRows([
-        ['Total Requests', metrics.totalRequests, ''],
-        ['Pending Requests', metrics.pendingRequests, ''],
-        ['Completed Requests', metrics.completedRequests, ''],
-        ['In Progress Requests', metrics.inProgressRequests, ''],
-        ['Average Request Priority', metrics.averagePriority.toFixed(2), 'Scale: Low=1, Standard=2, High=3, Urgent=4'],
-        ['Requests by Type', '', ''],
-        ...Object.entries(metrics.requestsByType).map(([type, count]) => 
-          [`- ${type}`, count, '']
-        ),
-        ['Requests by Priority', '', ''],
-        ...Object.entries(metrics.requestsByPriority).map(([priority, count]) => 
-          [`- ${priority}`, count, '']
-        )
-      ]);
+      // You may want to store the dashboard metrics in MongoDB for future reference
+      // This is optional but could be useful for historical tracking
+      try {
+        const { events } = await getCollections();
+        await events.insertOne({
+          action: 'DASHBOARD_GENERATED',
+          timestamp: new Date(),
+          metrics: metrics
+        });
+      } catch (error) {
+        console.error('Error saving dashboard metrics:', error);
+      }
   
       return metrics;
     } catch (error) {
@@ -86,30 +61,34 @@ class RequestDashboard {
 
     rows.forEach(row => {
       // Status counting
-      switch(row.Status) {
-        case 'New':
-        case 'Pending':
+      switch(row.status) {
+        case 'NEW':
+        case 'PENDING':
           metrics.pendingRequests++;
           break;
-        case 'Completed':
-        case 'Closed':
+        case 'COMPLETED':
+        case 'CLOSED':
           metrics.completedRequests++;
           break;
-        case 'In Progress':
+        case 'IN_PROGRESS':
+        case 'ORDERED':
+        case 'RECEIVED':
+        case 'NOTIFIED':
+        case 'PAID':
           metrics.inProgressRequests++;
           break;
       }
 
       // Type counting
-      metrics.requestsByType[row.Type] = 
-        (metrics.requestsByType[row.Type] || 0) + 1;
+      metrics.requestsByType[row.type] = 
+        (metrics.requestsByType[row.type] || 0) + 1;
 
       // Priority counting
-      metrics.requestsByPriority[row.Priority] = 
-        (metrics.requestsByPriority[row.Priority] || 0) + 1;
+      metrics.requestsByPriority[row.priority] = 
+        (metrics.requestsByPriority[row.priority] || 0) + 1;
 
       // Priority calculation
-      totalPriorityValue += priorityMap[row.Priority] || 2; // Default to Standard
+      totalPriorityValue += priorityMap[row.priority] || 2; // Default to Standard
     });
 
     // Calculate average priority
@@ -122,15 +101,16 @@ class RequestDashboard {
 
   async getRequestTrends() {
     try {
-      const doc = new GoogleSpreadsheet(this.spreadsheetId, this.serviceAccountAuth);
-      await doc.loadInfo();
+      // Get MongoDB collections
+      const { requests } = await getCollections();
       
-      const requestsSheet = doc.sheetsByIndex[0];
-      const rows = await requestsSheet.getRows();
+      // Get all requests
+      const rows = await requests.find({}).toArray();
 
       // Group requests by creation date
       const requestsByDate = rows.reduce((acc, row) => {
-        const createdAt = new Date(row.CreatedAt).toISOString().split('T')[0];
+        // Convert MongoDB date to YYYY-MM-DD format
+        const createdAt = new Date(row.createdAt).toISOString().split('T')[0];
         acc[createdAt] = (acc[createdAt] || 0) + 1;
         return acc;
       }, {});

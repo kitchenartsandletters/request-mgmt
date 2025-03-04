@@ -1,7 +1,6 @@
 // integrations/bookHoldPrinter.js
 const fs = require('fs');
 const path = require('path');
-const { getCollections } = require('../database/mongodb');
 
 class BookHoldPrinter {
   constructor() {
@@ -32,8 +31,8 @@ Logged by Request Management System
     `;
   }
 
-  async printBookHold(requestData) {
-    return new Promise(async (resolve, reject) => {
+  printBookHold(requestData) {
+    return new Promise((resolve, reject) => {
       try {
         // Generate print content
         const printContent = this.generatePrintContent(requestData);
@@ -45,22 +44,6 @@ Logged by Request Management System
         fs.appendFileSync(logFilePath, `\n${printContent}\n`);
         
         console.log(`Book hold ticket logged for ${requestData.customerName} (instead of printing)`);
-        
-        // Optionally log to MongoDB as well
-        try {
-          const { events } = await getCollections();
-          await events.insertOne({
-            requestId: requestData.requestId,
-            action: 'BOOK_HOLD_TICKET_CREATED',
-            timestamp: new Date(),
-            printContent: printContent,
-            customerName: requestData.customerName,
-            customerContact: requestData.customerContact,
-          });
-        } catch (dbError) {
-          console.error('Error logging book hold ticket to MongoDB:', dbError);
-          // Continue even if MongoDB logging fails
-        }
         
         resolve({
           success: true,
