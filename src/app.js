@@ -50,13 +50,8 @@ const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
   socketMode: true,
   appToken: process.env.SLACK_APP_TOKEN,
-  // Add custom logger for clearer debugging
-  logger: {
-    debug: (...msgs) => console.debug('[Slack:Debug]', ...msgs),
-    info: (...msgs) => console.info('[Slack:Info]', ...msgs),
-    warn: (...msgs) => console.warn('[Slack:Warning]', ...msgs),
-    error: (...msgs) => console.error('[Slack:Error]', ...msgs),
-  }
+  // Set log level instead of custom logger
+  logLevel: 'debug'
 });
 
 // Log socket connection status
