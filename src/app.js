@@ -5,6 +5,19 @@ const { connectToDatabase } = require('./database/mongodb');
 const UnifiedEventLogger = require('./integrations/services/unifiedEventLogger');
 const RequestDashboard = require('./integrations/requestDashboard');
 const BookHoldPrinter = require('./integrations/bookHoldPrinter');
+const express = require('express');
+const expressApp = express();
+
+// Add health check endpoint FIRST, before any other middleware
+expressApp.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
+// Log incoming requests for debugging
+expressApp.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
+  next();
+});
 
 // Configure request types for book holds
 UnifiedEventLogger.REQUEST_TYPES.book_hold.requiredFieldsPerStatus.PAID = ['payment_method', 'order_number'];
@@ -27,24 +40,18 @@ let app;
 
 if (process.env.NODE_ENV === 'production') {
   // Use HTTP receiver for production
+
+  const { createExpressReceiver } = require('@slack/bolt');
+  const receiver = createExpressReceiver({
+    signingSecret: process.env.SLACK_SIGNING_SECRET,
+    processBeforeResponse: true,
+    app: expressApp // Use our existing Express app
+  });
+
   app = new App({
     token: process.env.SLACK_BOT_TOKEN,
-    signingSecret: process.env.SLACK_SIGNING_SECRET,
-    // Enable request signing in production for security
-    processBeforeResponse: true
+    receiver
   });
-  
-  // Add a health check endpoint for Railway
-  const express = require('express');
-  const expressApp = express();
-  
-  // Health check endpoint
-  expressApp.get('/health', (req, res) => {
-    res.status(200).send('OK');
-  });
-  
-  // Use Express as the receiver
-  app.receiver.app = expressApp;
 } else {
   // Use Socket Mode for development
   app = new App({
