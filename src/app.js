@@ -9,6 +9,14 @@ const express = require('express');
 const expressApp = express();
 const healthEndpoint = require('./health-endpoint');
 expressApp.use(healthEndpoint);
+const fs = require('fs');
+try {
+  console.log('Current directory:', process.cwd());
+  console.log('Files in current directory:', fs.readdirSync('.'));
+  console.log('Files in database directory:', fs.readdirSync('./database'));
+} catch (error) {
+  console.error('Error listing files:', error);
+}
 
 // Add health check endpoint FIRST, before any other middleware
 expressApp.get('/health', (req, res) => {
