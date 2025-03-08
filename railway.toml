@@ -4,7 +4,7 @@ builder = "nixpacks"
 buildCommand = "npm install"
 
 [deploy]
-startCommand = "node src/app.js"
+startCommand = "node app.js"
 healthcheckPath = "/health"
 healthcheckTimeout = 100
 
