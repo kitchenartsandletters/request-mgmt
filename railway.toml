@@ -1,3 +1,4 @@
+# railway.toml - Simplified configuration
 [build]
 builder = "nixpacks"
 buildCommand = "npm install"
@@ -6,8 +7,6 @@ buildCommand = "npm install"
 startCommand = "npm start"
 healthcheckPath = "/health"
 healthcheckTimeout = 100
-restartPolicyType = "on-failure"
-restartPolicyMaxRetries = 10
 
 [nixpacks]
 nodejs-version = "16"
