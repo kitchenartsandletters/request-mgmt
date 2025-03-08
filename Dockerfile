@@ -1,6 +1,6 @@
 FROM node:18
 
-WORKDIR /
+WORKDIR /src
 
 # Copy package files first for better caching
 COPY package*.json ./
