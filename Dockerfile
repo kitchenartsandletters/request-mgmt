@@ -19,4 +19,4 @@ ENV PORT=3000
 EXPOSE 3000
 
 # Start the application - use the simplified health check server for Railway
-CMD ["node", "src/app.js"]
+CMD ["node", "app.js"]
