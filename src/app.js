@@ -7,6 +7,8 @@ const RequestDashboard = require('./integrations/requestDashboard');
 const BookHoldPrinter = require('./integrations/bookHoldPrinter');
 const express = require('express');
 const expressApp = express();
+const healthEndpoint = require('./health-endpoint');
+expressApp.use(healthEndpoint);
 
 // Add health check endpoint FIRST, before any other middleware
 expressApp.get('/health', (req, res) => {
@@ -3311,7 +3313,8 @@ app.error(async (error) => {
     // Start the app
     await app.start(port);
     console.log(`⚡️ Request Management app is running on port ${port}!`);
-  } catch (error) {
+    console.log(`Health check endpoint available at: http://localhost:${port}/health`);
+  } catch (error) {  // ✅ Now properly handling errors for the IIFE
     console.error('Failed to start app:', error);
   }
 })();

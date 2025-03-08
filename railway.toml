@@ -4,10 +4,10 @@ builder = "nixpacks"
 buildCommand = "npm install"
 
 [deploy]
-startCommand = "npm start"
+startCommand = "node healthcheck-server.js & npm start"
 healthcheckPath = "/health"
 healthcheckTimeout = 100
 
 [nixpacks]
 install_cmd = "npm install"  # Explicitly specify npm install instead of npm ci
-nodejs-version = "16"
+nodejs-version = "18"
