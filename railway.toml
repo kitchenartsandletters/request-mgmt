@@ -1,4 +1,4 @@
-# railway.toml - Simplified configuration
+# railway.toml - Updated to use npm install instead of npm ci
 [build]
 builder = "nixpacks"
 buildCommand = "npm install"
@@ -9,4 +9,5 @@ healthcheckPath = "/health"
 healthcheckTimeout = 100
 
 [nixpacks]
+install_cmd = "npm install"  # Explicitly specify npm install instead of npm ci
 nodejs-version = "16"
