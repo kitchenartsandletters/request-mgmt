@@ -2,7 +2,7 @@
   "name": "slack-request-management",
   "version": "1.0.0",
   "description": "Request Management System for Slack",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
