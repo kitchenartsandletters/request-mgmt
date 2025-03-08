@@ -7,7 +7,7 @@ const RequestDashboard = require('./integrations/requestDashboard');
 const BookHoldPrinter = require('./integrations/bookHoldPrinter');
 const express = require('express');
 const expressApp = express();
-const healthEndpoint = require('./health-endpoint');
+const healthEndpoint = require('../health-endpoint');
 expressApp.use(healthEndpoint);
 const fs = require('fs');
 try {
