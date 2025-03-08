@@ -10,6 +10,21 @@ const expressApp = express();
 const healthEndpoint = require('../health-endpoint');
 expressApp.use(healthEndpoint);
 
+console.log('SLACK_BOT_TOKEN exists:', !!process.env.SLACK_BOT_TOKEN);
+console.log('SLACK_SIGNING_SECRET exists:', !!process.env.SLACK_SIGNING_SECRET);
+console.log('SLACK_APP_TOKEN exists:', !!process.env.SLACK_APP_TOKEN);
+console.log('REQUESTS_CHANNEL exists:', !!process.env.REQUESTS_CHANNEL);
+
+if (!process.env.SLACK_BOT_TOKEN) {
+  console.error('ERROR: SLACK_BOT_TOKEN environment variable is required');
+  process.exit(1);
+}
+
+if (!process.env.SLACK_SIGNING_SECRET) {
+  console.error('ERROR: SLACK_SIGNING_SECRET environment variable is required');
+  process.exit(1);
+}
+
 // Add health check endpoint FIRST, before any other middleware
 expressApp.get('/health', (req, res) => {
   res.status(200).send('OK');
