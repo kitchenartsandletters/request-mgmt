@@ -51,11 +51,11 @@ let app;
 if (process.env.NODE_ENV === 'production') {
   // Use HTTP receiver for production
 
-  const { createExpressReceiver } = require('@slack/bolt');
-  const receiver = createExpressReceiver({
+  const { ExpressReceiver } = require('@slack/bolt');
+  const receiver = new ExpressReceiver({
     signingSecret: process.env.SLACK_SIGNING_SECRET,
     processBeforeResponse: true,
-    app: expressApp // Use our existing Express app
+    app: expressApp // This attaches your custom Express app
   });
 
   app = new App({
