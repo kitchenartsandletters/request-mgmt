@@ -2958,7 +2958,7 @@ app.command('/request-dashboard', async ({ body, ack, client }) => {
   }
 });
 
-// Enhanced /request-search command handler
+// Enhanced /request-search command handler with field name conversion
 app.command('/request-search', async ({ body, ack, client }) => {
   await ack();
 
@@ -2989,7 +2989,7 @@ app.command('/request-search', async ({ body, ack, client }) => {
             type: "section",
             text: {
               type: "mrkdwn",
-              text: "*Examples:*\n• `/request-search customer:smith`\n• `/request-search status:ordered`\n• `/request-search isbn:9781234567890`"
+              text: "*Examples:*\n• `/request-search customer:smith`\n• `/request-search status:completed`\n• `/request-search isbn:9781234567890`"
             }
           }
         ]
@@ -3009,16 +3009,16 @@ app.command('/request-search', async ({ body, ack, client }) => {
       searchField = field.toLowerCase();
       searchTerm = term.trim();
       
-      // Map the search field to MongoDB field
+      // Map the search field to MongoDB field (using lowercase field names that match your DB)
       switch (searchField) {
         case 'customer':
-          searchOptions = { CustomerName: { $regex: searchTerm, $options: 'i' } };
+          searchOptions = { customerName: { $regex: searchTerm, $options: 'i' } };
           break;
         case 'contact':
-          searchOptions = { CustomerContact: { $regex: searchTerm, $options: 'i' } };
+          searchOptions = { customerContact: { $regex: searchTerm, $options: 'i' } };
           break;
         case 'isbn':
-          searchOptions = { ISBN: { $regex: searchTerm, $options: 'i' } };
+          searchOptions = { isbn: { $regex: searchTerm, $options: 'i' } };
           break;
         case 'type':
           // Map common request type names to actual values
@@ -3040,15 +3040,15 @@ app.command('/request-search', async ({ body, ack, client }) => {
             }
           }
           
-          searchOptions = { Type: { $regex: typeValue, $options: 'i' } };
+          searchOptions = { type: { $regex: typeValue, $options: 'i' } };
           break;
         case 'status':
           // Map status names (case-insensitive)
           let statusValue = searchTerm.toUpperCase();
-          searchOptions = { Status: { $regex: statusValue, $options: 'i' } };
+          searchOptions = { status: { $regex: statusValue, $options: 'i' } };
           break;
         case 'id':
-          searchOptions = { RequestID: { $regex: searchTerm, $options: 'i' } };
+          searchOptions = { requestId: { $regex: searchTerm, $options: 'i' } };
           break;
         default:
           // If field is not recognized, do a general search
@@ -3058,17 +3058,8 @@ app.command('/request-search', async ({ body, ack, client }) => {
 
     // If no specific field was recognized or specified, perform a general search
     if (!searchField) {
-      searchOptions = {
-        $or: [
-          { RequestID: { $regex: searchTerm, $options: 'i' } },
-          { CustomerName: { $regex: searchTerm, $options: 'i' } },
-          { CustomerContact: { $regex: searchTerm, $options: 'i' } },
-          { Type: { $regex: searchTerm, $options: 'i' } },
-          { Status: { $regex: searchTerm, $options: 'i' } },
-          { ISBN: { $regex: searchTerm, $options: 'i' } },
-          { Details: { $regex: searchTerm, $options: 'i' } }
-        ]
-      };
+      // This will be handled by the searchRequests method
+      searchOptions = {};
     }
 
     console.log('Search options:', JSON.stringify(searchOptions));
@@ -3101,22 +3092,22 @@ app.command('/request-search', async ({ body, ack, client }) => {
     
     limitedResults.forEach(request => {
       // Format the date in a readable way
-      const createdDate = new Date(request.CreatedAt).toLocaleString('en-US', {
+      const createdDate = new Date(request.createdAt).toLocaleString('en-US', {
         month: 'short',
         day: 'numeric',
         year: 'numeric'
       });
       
       // Get a shorter version of the details for preview
-      const detailsPreview = request.Details ? 
-        (request.Details.length > 50 ? request.Details.substring(0, 50) + '...' : request.Details) :
+      const detailsPreview = request.details ? 
+        (request.details.length > 50 ? request.details.substring(0, 50) + '...' : request.details) :
         'N/A';
       
       resultBlocks.push({
         type: "section",
         text: {
           type: "mrkdwn",
-          text: `*${request.RequestID}* (${createdDate})\n*Type:* ${request.Type} | *Status:* ${request.Status}\n*Customer:* ${request.CustomerName || 'N/A'}\n*Contact:* ${request.CustomerContact || 'N/A'}\n*Details:* ${detailsPreview}`
+          text: `*${request.requestId}* (${createdDate})\n*Type:* ${request.type} | *Status:* ${request.status}\n*Customer:* ${request.customerName || 'N/A'}\n*Contact:* ${request.customerContact || 'N/A'}\n*Details:* ${detailsPreview}`
         },
         accessory: {
           type: "button",
@@ -3124,7 +3115,7 @@ app.command('/request-search', async ({ body, ack, client }) => {
             type: "plain_text",
             text: "View Details"
           },
-          value: request.RequestID,
+          value: request.requestId,
           action_id: "view_request_details"
         }
       });
@@ -3179,28 +3170,27 @@ app.command('/request-search', async ({ body, ack, client }) => {
   }
 });
 
-// Handle request details view
+// Updated view_request_details handler to match your document structure
 app.action('view_request_details', async ({ body, ack, client }) => {
   await ack();
   
   try {
     const requestId = body.actions[0].value;
     
-    // Get request details and history
+    // Get request details - updated to find by requestId field
     const request = await UnifiedEventLogger.getRequestById(requestId);
-    const history = await UnifiedEventLogger.getRequestHistory(requestId);
     
     if (!request) {
       throw new Error(`Request ${requestId} not found`);
     }
     
-    // Format request details
+    // Format request details - updated field names to match DB structure
     const detailsBlocks = [
       {
         type: "section",
         text: {
           type: "mrkdwn",
-          text: `*Request Details:* ${requestId}`
+          text: `*Request Details:* ${request.requestId}`
         }
       },
       {
@@ -3208,95 +3198,100 @@ app.action('view_request_details', async ({ body, ack, client }) => {
         fields: [
           {
             type: "mrkdwn",
-            text: `*Type:* ${request.Type}`
+            text: `*Type:* ${request.type}`
           },
           {
             type: "mrkdwn",
-            text: `*Status:* ${request.Status}`
+            text: `*Status:* ${request.status}`
           },
           {
             type: "mrkdwn",
-            text: `*Customer:* ${request.CustomerName || 'N/A'}`
+            text: `*Customer:* ${request.customerName || 'N/A'}`
           },
           {
             type: "mrkdwn",
-            text: `*Contact:* ${request.CustomerContact || 'N/A'}`
+            text: `*Contact:* ${request.customerContact || 'N/A'}`
           },
           {
             type: "mrkdwn",
-            text: `*Priority:* ${request.Priority}`
+            text: `*Priority:* ${request.priority}`
           },
           {
             type: "mrkdwn",
-            text: `*Created:* ${new Date(request.CreatedAt).toLocaleString()}`
+            text: `*Created:* ${new Date(request.createdAt).toLocaleString()}`
           }
         ]
-      },
-      {
-        type: "section",
-        text: {
-          type: "mrkdwn",
-          text: `*Details:*\n${request.Details}`
-        }
       }
     ];
     
-    // Add history section if available
-    if (history && history.length > 0) {
+    // Add ISBN if available
+    if (request.isbn) {
       detailsBlocks.push({
         type: "section",
-        text: {
-          type: "mrkdwn",
-          text: "*Event History:*"
-        }
-      });
-      
-      // Show last 5 events to avoid message size limitations
-      const recentHistory = history.slice(-5);
-      
-      recentHistory.forEach(event => {
-        const timestamp = new Date(event.Timestamp).toLocaleString();
-        let eventText = `• ${timestamp}: ${event.Action}`;
-        
-        if (event.UserId) {
-          eventText += ` by <@${event.UserId}>`;
-        }
-        
-        detailsBlocks.push({
-          type: "section",
-          text: {
+        fields: [
+          {
             type: "mrkdwn",
-            text: eventText
+            text: `*ISBN:* ${request.isbn}`
+          },
+          {
+            type: "mrkdwn",
+            text: `*Updated:* ${new Date(request.updatedAt).toLocaleString()}`
           }
-        });
+        ]
       });
-      
-      // Add note if history was truncated
-      if (history.length > 5) {
-        detailsBlocks.push({
-          type: "context",
-          elements: [
-            {
-              type: "mrkdwn",
-              text: `_Showing ${recentHistory.length} of ${history.length} events. See Google Sheets for full history._`
-            }
-          ]
-        });
+    }
+    
+    // Add details section
+    detailsBlocks.push({
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: `*Details:*\n${request.details || 'No details provided'}`
       }
+    });
+    
+    // Add order details if available
+    const orderFields = [];
+    if (request.order_number) orderFields.push({ type: "mrkdwn", text: `*Order Number:* ${request.order_number}` });
+    if (request.payment_method) orderFields.push({ type: "mrkdwn", text: `*Payment Method:* ${request.payment_method}` });
+    if (request.ordered_by) orderFields.push({ type: "mrkdwn", text: `*Ordered By:* ${request.ordered_by}` });
+    if (request.order_method) orderFields.push({ type: "mrkdwn", text: `*Order Method:* ${request.order_method}` });
+    
+    if (orderFields.length > 0) {
+      detailsBlocks.push({
+        type: "section",
+        fields: orderFields
+      });
+    }
+    
+    // Add date details if available
+    const dateFields = [];
+    if (request.dateNeeded) dateFields.push({ type: "mrkdwn", text: `*Date Needed:* ${request.dateNeeded}` });
+    if (request.estimated_arrival) dateFields.push({ type: "mrkdwn", text: `*Estimated Arrival:* ${request.estimated_arrival}` });
+    if (request.arrival_date) dateFields.push({ type: "mrkdwn", text: `*Arrival Date:* ${request.arrival_date}` });
+    if (request.notification_date) dateFields.push({ type: "mrkdwn", text: `*Notification Date:* ${request.notification_date}` });
+    if (request.completion_date) dateFields.push({ type: "mrkdwn", text: `*Completion Date:* ${request.completion_date}` });
+    
+    if (dateFields.length > 0) {
+      detailsBlocks.push({
+        type: "section",
+        fields: dateFields
+      });
     }
     
     // Add action buttons if request is not in a terminal state
-    const requestType = request.Type.toLowerCase();
+    // Check if the request type is valid and the status can be transitioned
+    const requestType = request.type;
     const typeConfig = UnifiedEventLogger.REQUEST_TYPES[requestType];
     
     if (typeConfig && 
         typeConfig.statusTransitions && 
-        typeConfig.statusTransitions[request.Status] && 
-        typeConfig.statusTransitions[request.Status].length > 0) {
+        typeConfig.statusTransitions[request.status] && 
+        typeConfig.statusTransitions[request.status].length > 0) {
       
       detailsBlocks.push({
         type: "actions",
-        elements: getActionButtons(requestId, requestType, request.Status)
+        elements: getActionButtons(request.requestId, requestType, request.status)
       });
     }
     
@@ -3308,7 +3303,7 @@ app.action('view_request_details', async ({ body, ack, client }) => {
           type: "modal",
           title: {
             type: "plain_text",
-            text: `Request ${requestId}`
+            text: `Request ${request.requestId}`
           },
           blocks: detailsBlocks
         }

@@ -470,14 +470,16 @@ TIMESTAMP: ${new Date().toISOString()}
     }
   }
 
-  // Get a specific request by ID
-  async getRequestById(requestId) {
+  // Get a specific request by ID - Updated to use correct field name while preserving fallback
+async getRequestById(requestId) {
     try {
       console.log(`Looking for request with ID: ${requestId}`);
       
-      // Try MongoDB first
+      // Try MongoDB first with the correct field name
       try {
         const { requests } = await getCollections();
+        
+        // Search using lowercase field name to match your document structure
         const request = await requests.findOne({ requestId });
         
         if (request) {
@@ -543,39 +545,78 @@ TIMESTAMP: ${new Date().toISOString()}
     }
   }
 
-  // Search requests from MongoDB
-  async searchRequests(query, options = {}) {
+  /**
+ * Search for requests with enhanced filtering options
+ * @param {string} query - The search query text
+ * @param {object} options - Advanced search options
+ * @returns {Promise<Array>} - Array of matching requests
+ */
+// Updated searchRequests method to match your exact database structure
+async searchRequests(query, options = {}) {
     try {
       console.log(`Searching requests with query: "${query}"`);
       console.log('Search options:', JSON.stringify(options));
   
       // Get database connection
-      const db = await this.connectToDB();
-      const collection = db.collection('requests');
+      if (!this.client) {
+        const { MongoClient } = require('mongodb');
+        this.client = new MongoClient(process.env.MONGODB_URI);
+        await this.client.connect();
+        console.log('Connected to MongoDB');
+      }
+      
+      const db = this.client.db(process.env.MONGODB_DATABASE || 'request_management');
+      const collection = db.collection('requests'); // This is the correct collection based on your debug output
   
-      // Build the query filter
+      // Count documents to verify we're accessing the right collection
+      const totalCount = await collection.countDocuments({});
+      console.log(`Found ${totalCount} total documents in requests collection`);
+  
+      // Build the query filter based on your actual field names from debug output
       let filter = {};
   
-      // If specific options are provided, use them directly
+      // Convert options to match your actual field names
       if (Object.keys(options).length > 0) {
-        filter = options;
+        // Convert field names to match your database
+        const convertedOptions = {};
+        
+        if (options.CustomerName) {
+          convertedOptions.customerName = options.CustomerName;
+        }
+        if (options.CustomerContact) {
+          convertedOptions.customerContact = options.CustomerContact;
+        }
+        if (options.Type) {
+          convertedOptions.type = options.Type;
+        }
+        if (options.Status) {
+          convertedOptions.status = options.Status;
+        }
+        if (options.ISBN) {
+          convertedOptions.isbn = options.ISBN;
+        }
+        if (options.RequestID) {
+          convertedOptions.requestId = options.RequestID;
+        }
+        
+        filter = convertedOptions;
       } 
-      // Otherwise, use the text parameter for a general search
+      // General search query using correct field names
       else if (query && query.trim() !== '') {
         filter = {
           $or: [
-            { RequestID: { $regex: query, $options: 'i' } },
-            { CustomerName: { $regex: query, $options: 'i' } },
-            { CustomerContact: { $regex: query, $options: 'i' } },
-            { Type: { $regex: query, $options: 'i' } },
-            { Status: { $regex: query, $options: 'i' } },
-            { Details: { $regex: query, $options: 'i' } }
+            { requestId: { $regex: query, $options: 'i' } },
+            { customerName: { $regex: query, $options: 'i' } },
+            { customerContact: { $regex: query, $options: 'i' } },
+            { type: { $regex: query, $options: 'i' } },
+            { status: { $regex: query, $options: 'i' } },
+            { details: { $regex: query, $options: 'i' } }
           ]
         };
   
         // If query looks like an ISBN, search that field too
         if (/^\d{9,13}X?$/.test(query.replace(/[-\s]/g, ''))) {
-          filter.$or.push({ ISBN: { $regex: query, $options: 'i' } });
+          filter.$or.push({ isbn: { $regex: query, $options: 'i' } });
         }
       }
   
@@ -583,7 +624,7 @@ TIMESTAMP: ${new Date().toISOString()}
   
       // Execute the query
       const results = await collection.find(filter)
-        .sort({ CreatedAt: -1 }) // Most recent first
+        .sort({ createdAt: -1 }) // Sort by creation date descending
         .limit(100) // Reasonable limit
         .toArray();
   
