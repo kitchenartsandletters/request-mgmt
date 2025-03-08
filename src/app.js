@@ -2958,29 +2958,129 @@ app.command('/request-dashboard', async ({ body, ack, client }) => {
   }
 });
 
-// Search command to find requests
+// Enhanced /request-search command handler
 app.command('/request-search', async ({ body, ack, client }) => {
   await ack();
 
   try {
-    const searchQuery = body.text.trim();
+    const searchInput = body.text.trim();
     
-    if (!searchQuery) {
+    // If no search term is provided, show the search help message
+    if (!searchInput) {
       await client.chat.postEphemeral({
         channel: body.channel_id,
         user: body.user_id,
-        text: "Please provide a search term. Usage: `/request-search [term]`"
+        blocks: [
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: "*Request Search Help*\nUse the search command with one of these formats:"
+            }
+          },
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: "• `/request-search [text]` - Search across all fields\n• `/request-search customer:[name]` - Search by customer name\n• `/request-search contact:[email or phone]` - Search by customer contact\n• `/request-search isbn:[number]` - Search by ISBN\n• `/request-search type:[request type]` - Search by request type\n• `/request-search status:[status]` - Search by status"
+            }
+          },
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: "*Examples:*\n• `/request-search customer:smith`\n• `/request-search status:ordered`\n• `/request-search isbn:9781234567890`"
+            }
+          }
+        ]
       });
       return;
     }
-    
-    const results = await UnifiedEventLogger.searchRequests(searchQuery);
+
+    // Parse the search term and field
+    let searchField = null;
+    let searchTerm = searchInput;
+    let searchOptions = {};
+
+    // Check if search uses field:value format
+    const fieldMatches = searchInput.match(/^(\w+):(.+)$/);
+    if (fieldMatches) {
+      const [, field, term] = fieldMatches;
+      searchField = field.toLowerCase();
+      searchTerm = term.trim();
+      
+      // Map the search field to MongoDB field
+      switch (searchField) {
+        case 'customer':
+          searchOptions = { CustomerName: { $regex: searchTerm, $options: 'i' } };
+          break;
+        case 'contact':
+          searchOptions = { CustomerContact: { $regex: searchTerm, $options: 'i' } };
+          break;
+        case 'isbn':
+          searchOptions = { ISBN: { $regex: searchTerm, $options: 'i' } };
+          break;
+        case 'type':
+          // Map common request type names to actual values
+          let typeValue = searchTerm.toLowerCase();
+          const typeMap = {
+            'special': 'special_order',
+            'hold': 'book_hold',
+            'backorder': 'backorder_request',
+            'out': 'out_of_print',
+            'bulk': 'bulk_order',
+            'personalization': 'personalization'
+          };
+          
+          // Check if search term is a partial match for any type
+          for (const [key, value] of Object.entries(typeMap)) {
+            if (typeValue.includes(key)) {
+              typeValue = value;
+              break;
+            }
+          }
+          
+          searchOptions = { Type: { $regex: typeValue, $options: 'i' } };
+          break;
+        case 'status':
+          // Map status names (case-insensitive)
+          let statusValue = searchTerm.toUpperCase();
+          searchOptions = { Status: { $regex: statusValue, $options: 'i' } };
+          break;
+        case 'id':
+          searchOptions = { RequestID: { $regex: searchTerm, $options: 'i' } };
+          break;
+        default:
+          // If field is not recognized, do a general search
+          searchField = null;
+      }
+    }
+
+    // If no specific field was recognized or specified, perform a general search
+    if (!searchField) {
+      searchOptions = {
+        $or: [
+          { RequestID: { $regex: searchTerm, $options: 'i' } },
+          { CustomerName: { $regex: searchTerm, $options: 'i' } },
+          { CustomerContact: { $regex: searchTerm, $options: 'i' } },
+          { Type: { $regex: searchTerm, $options: 'i' } },
+          { Status: { $regex: searchTerm, $options: 'i' } },
+          { ISBN: { $regex: searchTerm, $options: 'i' } },
+          { Details: { $regex: searchTerm, $options: 'i' } }
+        ]
+      };
+    }
+
+    console.log('Search options:', JSON.stringify(searchOptions));
+
+    // Perform the search
+    const results = await UnifiedEventLogger.searchRequests(searchTerm, searchOptions);
     
     if (results.length === 0) {
       await client.chat.postEphemeral({
         channel: body.channel_id,
         user: body.user_id,
-        text: `No results found for "${searchQuery}"`
+        text: `No results found for "${searchInput}"`
       });
       return;
     }
@@ -2991,7 +3091,7 @@ app.command('/request-search', async ({ body, ack, client }) => {
         type: "section",
         text: {
           type: "mrkdwn",
-          text: `*Search Results for "${searchQuery}"* (${results.length} found)`
+          text: `*Search Results for "${searchInput}"* (${results.length} found)`
         }
       }
     ];
@@ -3000,11 +3100,23 @@ app.command('/request-search', async ({ body, ack, client }) => {
     const limitedResults = results.slice(0, 10);
     
     limitedResults.forEach(request => {
+      // Format the date in a readable way
+      const createdDate = new Date(request.CreatedAt).toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      });
+      
+      // Get a shorter version of the details for preview
+      const detailsPreview = request.Details ? 
+        (request.Details.length > 50 ? request.Details.substring(0, 50) + '...' : request.Details) :
+        'N/A';
+      
       resultBlocks.push({
         type: "section",
         text: {
           type: "mrkdwn",
-          text: `*Request ID:* ${request.RequestID}\n*Type:* ${request.Type}\n*Status:* ${request.Status}\n*Customer:* ${request.CustomerName || 'N/A'}\n*Created:* ${new Date(request.CreatedAt).toLocaleString()}`
+          text: `*${request.RequestID}* (${createdDate})\n*Type:* ${request.Type} | *Status:* ${request.Status}\n*Customer:* ${request.CustomerName || 'N/A'}\n*Contact:* ${request.CustomerContact || 'N/A'}\n*Details:* ${detailsPreview}`
         },
         accessory: {
           type: "button",
@@ -3016,7 +3128,17 @@ app.command('/request-search', async ({ body, ack, client }) => {
           action_id: "view_request_details"
         }
       });
+      
+      // Add a divider between results
+      resultBlocks.push({
+        type: "divider"
+      });
     });
+    
+    // Remove the last divider
+    if (resultBlocks.length > 1) {
+      resultBlocks.pop();
+    }
     
     // Add note if results were truncated
     if (results.length > 10) {
@@ -3030,6 +3152,17 @@ app.command('/request-search', async ({ body, ack, client }) => {
         ]
       });
     }
+
+    // Add a help context at the bottom
+    resultBlocks.push({
+      type: "context",
+      elements: [
+        {
+          type: "mrkdwn",
+          text: "_Try searching with specific fields: `/request-search customer:[name]`, `/request-search isbn:[number]`, etc._"
+        }
+      ]
+    });
 
     await client.chat.postMessage({
       channel: body.channel_id,

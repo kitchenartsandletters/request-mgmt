@@ -546,50 +546,67 @@ TIMESTAMP: ${new Date().toISOString()}
   // Search requests from MongoDB
   async searchRequests(query, options = {}) {
     try {
-      const { requestType, status, dateRange } = options;
-      const { requests } = await getCollections();
-      
-      // Build MongoDB query
-      const mongoQuery = {};
-      
-      // Apply request type filter if provided
-      if (requestType) {
-        mongoQuery.type = requestType;
-      }
-      
-      // Apply status filter if provided
-      if (status) {
-        mongoQuery.status = status;
-      }
-      
-      // Apply date range filter if provided
-      if (dateRange) {
-        mongoQuery.createdAt = {};
-        if (dateRange.from) {
-          mongoQuery.createdAt.$gte = new Date(dateRange.from);
+      console.log(`Searching requests with query: "${query}"`);
+      console.log('Search options:', JSON.stringify(options));
+  
+      // Get database connection
+      const db = await this.connectToDB();
+      const collection = db.collection('requests');
+  
+      // Build the query filter
+      let filter = {};
+  
+      // If specific options are provided, use them directly
+      if (Object.keys(options).length > 0) {
+        filter = options;
+      } 
+      // Otherwise, use the text parameter for a general search
+      else if (query && query.trim() !== '') {
+        filter = {
+          $or: [
+            { RequestID: { $regex: query, $options: 'i' } },
+            { CustomerName: { $regex: query, $options: 'i' } },
+            { CustomerContact: { $regex: query, $options: 'i' } },
+            { Type: { $regex: query, $options: 'i' } },
+            { Status: { $regex: query, $options: 'i' } },
+            { Details: { $regex: query, $options: 'i' } }
+          ]
+        };
+  
+        // If query looks like an ISBN, search that field too
+        if (/^\d{9,13}X?$/.test(query.replace(/[-\s]/g, ''))) {
+          filter.$or.push({ ISBN: { $regex: query, $options: 'i' } });
         }
-        if (dateRange.to) {
-          mongoQuery.createdAt.$lte = new Date(dateRange.to);
-        }
       }
-      
-      // Apply text search if query is provided
-      if (query) {
-        // Simple approach: search across multiple fields
-        mongoQuery.$or = [
-          { requestId: { $regex: query, $options: 'i' } },
-          { customerName: { $regex: query, $options: 'i' } },
-          { customerContact: { $regex: query, $options: 'i' } },
-          { details: { $regex: query, $options: 'i' } },
-          { isbn: { $regex: query, $options: 'i' } },
-          { vendorPublisher: { $regex: query, $options: 'i' } }
-        ];
-      }
-      
-      // Execute query
-      return await requests.find(mongoQuery).toArray();
+  
+      console.log('Final MongoDB query filter:', JSON.stringify(filter));
+  
+      // Execute the query
+      const results = await collection.find(filter)
+        .sort({ CreatedAt: -1 }) // Most recent first
+        .limit(100) // Reasonable limit
+        .toArray();
+  
+      console.log(`Found ${results.length} matching requests`);
+      return results;
     } catch (error) {
-      console.error('Error searching requests:', error);
+      console.error('Error in searchRequests:', error);
+      throw error;
+    }
+  }
+
+  async connectToDB() {
+    try {
+      if (!this.client) {
+        const { MongoClient } = require('mongodb');
+        this.client = new MongoClient(process.env.MONGODB_URI);
+        await this.client.connect();
+        console.log('Connected to MongoDB');
+      }
+      
+      return this.client.db(process.env.MONGODB_DATABASE || 'request_management');
+    } catch (error) {
+      console.error('Error connecting to MongoDB:', error);
       throw error;
     }
   }
