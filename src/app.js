@@ -8,24 +8,9 @@ const BookHoldPrinter = require('./integrations/bookHoldPrinter');
 const express = require('express');
 const expressApp = express();
 const healthEndpoint = require('../health-endpoint');
+
+// Add health check endpoint
 expressApp.use(healthEndpoint);
-
-console.log('SLACK_BOT_TOKEN exists:', !!process.env.SLACK_BOT_TOKEN);
-console.log('SLACK_SIGNING_SECRET exists:', !!process.env.SLACK_SIGNING_SECRET);
-console.log('SLACK_APP_TOKEN exists:', !!process.env.SLACK_APP_TOKEN);
-console.log('REQUESTS_CHANNEL exists:', !!process.env.REQUESTS_CHANNEL);
-
-if (!process.env.SLACK_BOT_TOKEN) {
-  console.error('ERROR: SLACK_BOT_TOKEN environment variable is required');
-  process.exit(1);
-}
-
-if (!process.env.SLACK_SIGNING_SECRET) {
-  console.error('ERROR: SLACK_SIGNING_SECRET environment variable is required');
-  process.exit(1);
-}
-
-// Add health check endpoint FIRST, before any other middleware
 expressApp.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
@@ -34,6 +19,13 @@ expressApp.get('/health', (req, res) => {
 expressApp.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
   next();
+});
+
+// Start the express app separately for health checks
+const PORT = process.env.PORT || 3000;
+expressApp.listen(PORT, () => {
+  console.log(`Health check server running on port ${PORT}`);
+  console.log(`Health check endpoint available at: http://localhost:${PORT}/health`);
 });
 
 // Configure request types for book holds
@@ -52,32 +44,26 @@ async function initDatabase() {
   }
 }
 
-// Initialize Slack App with Socket Mode for development or HTTP for production
-let app;
+// Initialize Slack App with Socket Mode for all environments
+const app = new App({
+  token: process.env.SLACK_BOT_TOKEN,
+  signingSecret: process.env.SLACK_SIGNING_SECRET,
+  socketMode: true,
+  appToken: process.env.SLACK_APP_TOKEN,
+  // Add custom logger for clearer debugging
+  logger: {
+    debug: (...msgs) => console.debug('[Slack:Debug]', ...msgs),
+    info: (...msgs) => console.info('[Slack:Info]', ...msgs),
+    warn: (...msgs) => console.warn('[Slack:Warning]', ...msgs),
+    error: (...msgs) => console.error('[Slack:Error]', ...msgs),
+  }
+});
 
-if (process.env.NODE_ENV === 'production') {
-  // Use HTTP receiver for production
-
-  const { ExpressReceiver } = require('@slack/bolt');
-  const receiver = new ExpressReceiver({
-    signingSecret: process.env.SLACK_SIGNING_SECRET,
-    processBeforeResponse: true,
-    app: expressApp // This attaches your custom Express app
-  });
-
-  app = new App({
-    token: process.env.SLACK_BOT_TOKEN,
-    receiver
-  });
-} else {
-  // Use Socket Mode for development
-  app = new App({
-    token: process.env.SLACK_BOT_TOKEN,
-    signingSecret: process.env.SLACK_SIGNING_SECRET,
-    socketMode: true,
-    appToken: process.env.SLACK_APP_TOKEN
-  });
-}
+// Log socket connection status
+app.use(async ({ next }) => {
+  console.log('Socket connection active - middleware triggered');
+  await next();
+});
 
 // ========= VALIDATION FUNCTIONS ============
 
@@ -151,7 +137,6 @@ function isValidISBN10(isbn) {
   sum += checkDigit;
   return sum % 11 === 0;
 }
-
 
 // Validation function for Order Numbers
 function validateOrderNumber(orderNumber) {
@@ -3322,14 +3307,10 @@ app.error(async (error) => {
     // Initialize database connection
     await initDatabase();
     
-    // Determine the port for production
-    const port = process.env.PORT || 3000;
-    
-    // Start the app
-    await app.start(port);
-    console.log(`⚡️ Request Management app is running on port ${port}!`);
-    console.log(`Health check endpoint available at: http://localhost:${port}/health`);
-  } catch (error) {  // ✅ Now properly handling errors for the IIFE
+    // Start the Slack app with Socket Mode
+    await app.start();
+    console.log('⚡️ Request Management app connected via Socket Mode!');
+  } catch (error) {
     console.error('Failed to start app:', error);
   }
 })();
