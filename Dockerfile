@@ -1,6 +1,6 @@
 FROM node:18
 
-WORKDIR /src
+WORKDIR /
 
 # Copy package files first for better caching
 COPY package*.json ./
@@ -19,4 +19,4 @@ ENV PORT=3000
 EXPOSE 3000
 
 # Start the application - use the simplified health check server for Railway
-CMD ["node", "app.js"]
+CMD ["RUN ls -R /", "node", "src/app.js"]
